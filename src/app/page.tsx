@@ -17,6 +17,11 @@ import {
   BookCopy,
   Scale,
   XCircle,
+  Users,
+  Trophy,
+  Check,
+  DollarSign,
+  Calendar,
 } from "lucide-react";
 import { CtaSection } from "@/components/layout/cta-section";
 
@@ -47,13 +52,13 @@ const stats = [
 ];
 
 const whyChooseUsStats = [
-    { value: "9000+", description: "Students trained for IELTS" },
-    { value: "7000+", description: "Students with 7+ band score in IELTS" },
-    { value: "3000+", description: "Students trained for GRE" },
-    { value: "1800+", description: "Students with 300+ score in GRE" },
-    { value: "4500+", description: "Successful visas" },
-    { value: "80%", description: "Students with Scholarships" },
-    { value: "11+", description: "Years of Experience" },
+    { value: "9000+", description: "Students trained for IELTS", icon: <Users className="h-10 w-10 text-accent" /> },
+    { value: "7000+", description: "Students with 7+ band score in IELTS", icon: <Trophy className="h-10 w-10 text-accent" /> },
+    { value: "3000+", description: "Students trained for GRE", icon: <Users className="h-10 w-10 text-accent" /> },
+    { value: "1800+", description: "Students with 300+ score in GRE", icon: <Trophy className="h-10 w-10 text-accent" /> },
+    { value: "4500+", description: "Successful visas", icon: <Check className="h-10 w-10 text-accent" /> },
+    { value: "80%", description: "Students with Scholarships", icon: <DollarSign className="h-10 w-10 text-accent" /> },
+    { value: "11+", description: "Years of Experience", icon: <Calendar className="h-10 w-10 text-accent" /> },
 ];
 
 const countries = [
@@ -329,15 +334,21 @@ export default function Home() {
       <section className="bg-background py-16 md:py-24">
           <div className="container mx-auto px-4 md:px-8">
               <div className="text-center mb-12">
+                  <Badge variant="default" className="bg-accent text-accent-foreground hover:bg-accent/90 mb-4">
+                      OUR STRENGTHS
+                  </Badge>
                   <h2 className="font-headline text-3xl font-bold md:text-4xl" style={{color: "#0f8a79"}}>Why Choose Us</h2>
                   <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">We offer immersive language courses tailored to meet diverse learning needs, fostering fluency and cultural understanding in a supportive environment.</p>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                   {whyChooseUsStats.map(stat => (
-                      <div key={stat.description} className="text-center p-4 rounded-lg bg-secondary">
-                          <p className="font-headline text-4xl font-bold text-primary">{stat.value}</p>
-                          <p className="mt-2 text-muted-foreground">{stat.description}</p>
-                      </div>
+                      <Card key={stat.description} className="text-center p-6 shadow-lg rounded-xl">
+                        <div className="flex justify-center items-center mb-4">
+                            {stat.icon}
+                        </div>
+                        <p className="font-headline text-4xl font-bold text-primary">{stat.value}</p>
+                        <p className="mt-2 text-muted-foreground">{stat.description}</p>
+                      </Card>
                   ))}
               </div>
           </div>
