@@ -84,8 +84,8 @@ const awards = [
 export default function AchievementsPage() {
   return (
     <div className="bg-background">
-      <section className="bg-secondary text-center">
-        <div className="container mx-auto px-4 py-24 sm:py-32 md:px-8">
+      <section className="w-full bg-gradient-to-r from-primary/10 via-background to-primary/10">
+        <div className="container mx-auto px-4 py-24 text-center sm:py-32 md:px-8">
           <h1 className="font-headline text-4xl font-bold tracking-tighter text-foreground sm:text-5xl lg:text-6xl">
             Our Legacy of Success
           </h1>
