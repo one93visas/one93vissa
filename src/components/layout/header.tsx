@@ -17,7 +17,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
+      <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
           <Logo />
         </Link>
@@ -58,7 +58,7 @@ export function Header() {
         </Sheet>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex md:items-center md:gap-x-6">
+        <nav className="hidden md:flex md:items-center md:gap-x-8">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}

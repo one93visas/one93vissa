@@ -94,8 +94,8 @@ const testimonials = [
 export default function Home() {
   return (
     <div className="flex flex-col">
-      <section className="relative overflow-hidden bg-gradient-to-b from-primary/10 to-secondary py-24 sm:py-32">
-        <div className="container relative z-10 mx-auto grid grid-cols-1 items-center gap-12 text-center md:grid-cols-2 md:text-left">
+      <section className="relative w-full overflow-hidden bg-gradient-to-b from-primary/10 to-secondary py-24 sm:py-32">
+        <div className="container relative z-10 mx-auto grid grid-cols-1 items-center gap-12 text-center md:text-left lg:grid-cols-2">
           <div className="space-y-6">
             <h1 className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl">
               Your Global Future Starts Here
@@ -114,7 +114,7 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <div className="relative h-auto w-full">
+          <div className="relative hidden h-auto w-full lg:block">
             <Image
               src="https://placehold.co/600x400"
               alt="Students studying abroad"

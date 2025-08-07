@@ -48,7 +48,7 @@ export default function RootLayout({
       >
         <div className="relative flex min-h-dvh flex-col bg-background">
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 w-full">{children}</main>
           <Footer />
         </div>
         <Toaster />
