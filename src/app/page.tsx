@@ -114,43 +114,70 @@ export default function Home() {
 
       {/* About Company Section */}
       <section className="bg-background py-16 md:py-24">
-         <div className="container mx-auto px-4 md:px-8">
-            <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
-                 <div className="relative h-auto w-full order-last md:order-first">
-                   <Image
-                    src="https://placehold.co/600x700"
-                    alt="Student studying"
-                    data-ai-hint="student studying"
-                    width={600}
-                    height={700}
-                    className="mx-auto rounded-xl object-cover shadow-2xl"
-                    />
-                </div>
-                <div className="space-y-6">
-                    <Badge variant="outline">About Company</Badge>
-                    <h2 className="font-headline text-3xl font-bold md:text-4xl">Take The Next Step Toward Your Education</h2>
-                    <p className="text-muted-foreground">
-                       At One93 Global Pathways, we give students the support they need to do well in IELTS, TOEFL, GRE, and SAT. We know every student learns differently, so we make sure to help them in a way that fits them best. We're based in Uppal, and our goal is to help students get the scores they need to go to top universities around the world.
-                    </p>
-                    <ul className="space-y-3">
-                        <li className="flex items-center"><CheckCircle className="h-5 w-5 mr-2 text-primary"/>Expert coaching</li>
-                        <li className="flex items-center"><CheckCircle className="h-5 w-5 mr-2 text-primary"/>Personalized support</li>
-                        <li className="flex items-center"><CheckCircle className="h-5 w-5 mr-2 text-primary"/>Clear teaching methods</li>
-                        <li className="flex items-center"><CheckCircle className="h-5 w-5 mr-2 text-primary"/>Progress tracking</li>
-                    </ul>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-border">
-                        <div>
-                            <p className="font-semibold">Call us now:</p>
-                            <a href="tel:+918919767632" className="text-primary hover:underline flex items-center"><Phone className="h-4 w-4 mr-2"/>+91 8919767632</a>
-                        </div>
-                         <div>
-                            <p className="font-semibold">Get in touch:</p>
-                            <a href="mailto:contact@one93global.com" className="text-primary hover:underline flex items-center"><Mail className="h-4 w-4 mr-2"/>contact@one93global.com</a>
-                        </div>
-                    </div>
-                </div>
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-24">
+            <div className="relative order-last lg:order-first">
+              <div className="relative mx-auto w-full max-w-md rounded-xl border-4 border-primary p-2 shadow-2xl">
+                <Image
+                  src="https://placehold.co/600x700"
+                  alt="Student studying"
+                  data-ai-hint="student studying"
+                  width={600}
+                  height={700}
+                  className="rounded-lg object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-8 right-0 transform rounded-xl bg-accent px-6 py-3 shadow-lg md:right-1/4 lg:-right-12">
+                <p className="font-headline text-lg font-bold text-accent-foreground">
+                  10+ Years of Trust!
+                </p>
+              </div>
             </div>
-         </div>
+            <div className="space-y-6">
+              <Badge
+                variant="default"
+                className="bg-accent text-accent-foreground hover:bg-accent/90"
+              >
+                About Company
+              </Badge>
+              <h2 className="font-headline text-3xl font-bold text-primary md:text-4xl">
+                Take The Next Step Toward Your Education
+              </h2>
+              <p className="max-w-xl leading-relaxed text-muted-foreground">
+                At One93 Global Pathways, we give students the support they need
+                to do well in IELTS, TOEFL, GRE, and SAT. We know every student
+                learns differently, so we make sure to help them in a way that
+                fits them best. We're based in Uppal, and our goal is to help
+                students get the scores they need to go to top universities
+                around the world.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-center">
+                  <CheckCircle className="mr-2 h-5 w-5 text-primary" />
+                  Expert coaching
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="mr-2 h-5 w-5 text-primary" />
+                  Personalized support
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="mr-2 h-5 w-5 text-primary" />
+                  Clear teaching methods
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="mr-2 h-5 w-5 text-primary" />
+                  Progress tracking
+                </li>
+
+              </ul>
+               <Button asChild size="lg" className="font-bold">
+                <Link href="/about">
+                  Discover Our Story <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Our Services Section */}
