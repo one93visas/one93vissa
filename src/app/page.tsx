@@ -100,12 +100,12 @@ export default function Home() {
             <h1 className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl">
               Your Global Future Starts Here
             </h1>
-            <p className="mx-auto max-w-[600px] text-lg text-foreground/80 md:mx-0">
+            <p className="mx-auto max-w-xl text-lg leading-relaxed text-foreground/80 md:mx-0">
               One93 Global Pathways is your trusted partner for studying abroad,
               test preparation, and finding scholarships. Let us guide you on
               your journey to success.
             </p>
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center md:justify-start">
+            <div className="flex flex-col gap-4 pt-4 sm:flex-row sm:justify-center md:justify-start">
               <Button asChild size="lg" className="font-bold">
                 <Link href="/contact">Get Started</Link>
               </Button>
@@ -121,7 +121,7 @@ export default function Home() {
               data-ai-hint="happy students graduation"
               width={600}
               height={400}
-              className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center shadow-2xl"
+              className="mx-auto aspect-video max-w-md overflow-hidden rounded-xl object-cover object-center shadow-2xl"
             />
           </div>
         </div>
