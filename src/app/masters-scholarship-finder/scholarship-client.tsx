@@ -43,7 +43,7 @@ function ScholarshipResults({ results }: { results: ScholarshipFinderOutput }) {
                     <CardTitle className="font-headline text-center">No Scholarships Found</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <p className="text-center text-foreground/80">
+                    <p className="text-center text-muted-foreground">
                         We couldn't find any scholarships matching your specific criteria. Try broadening your search terms.
                     </p>
                 </CardContent>
@@ -53,7 +53,7 @@ function ScholarshipResults({ results }: { results: ScholarshipFinderOutput }) {
 
   return (
     <div className="mt-12 space-y-6">
-        <h2 className="text-3xl font-headline font-bold text-primary text-center">Recommended Scholarships</h2>
+        <h2 className="text-3xl font-headline font-bold text-foreground text-center">Recommended Scholarships</h2>
       {results.scholarships.map((scholarship, index) => (
         <Card key={index} className="overflow-hidden transition-shadow duration-300 hover:shadow-lg">
           <CardHeader>
@@ -66,26 +66,26 @@ function ScholarshipResults({ results }: { results: ScholarshipFinderOutput }) {
                     <DollarSign className="h-5 w-5 text-accent" />
                     <div>
                         <p className="font-semibold">Amount</p>
-                        <p className="text-sm text-foreground/80">{scholarship.amount}</p>
+                        <p className="text-sm text-muted-foreground">{scholarship.amount}</p>
                     </div>
                 </div>
                 <div className="flex items-center gap-2">
                     <Calendar className="h-5 w-5 text-accent" />
                     <div>
                         <p className="font-semibold">Deadline</p>
-                        <p className="text-sm text-foreground/80">{scholarship.deadline}</p>
+                        <p className="text-sm text-muted-foreground">{scholarship.deadline}</p>
                     </div>
                 </div>
             </div>
-            <div className="flex items-start gap-2">
+            <div className="flex items-start gap-2 pt-4">
                 <Target className="h-5 w-5 flex-shrink-0 text-accent mt-1" />
                 <div>
                     <p className="font-semibold">Eligibility</p>
-                    <p className="text-sm text-foreground/80">{scholarship.eligibilityCriteria}</p>
+                    <p className="text-sm text-muted-foreground">{scholarship.eligibilityCriteria}</p>
                 </div>
             </div>
           </CardContent>
-          <CardFooter className="bg-secondary/50 p-4">
+          <CardFooter className="bg-secondary p-4">
             <Button asChild>
               <a href={scholarship.applicationLink} target="_blank" rel="noopener noreferrer">
                 Apply Now <ExternalLink className="ml-2 h-4 w-4" />
@@ -163,7 +163,7 @@ export default function ScholarshipClient() {
 
   return (
     <div>
-      <Card className="bg-secondary/50">
+      <Card className="bg-card">
         <CardHeader>
             <CardTitle className="font-headline text-2xl">Your Profile</CardTitle>
             <CardDescription>The more details you provide, the better our AI can match you with scholarships.</CardDescription>

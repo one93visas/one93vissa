@@ -19,32 +19,32 @@ export function Footer() {
   );
 
   return (
-    <footer className="bg-secondary text-foreground">
+    <footer className="bg-secondary">
       <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="space-y-4 md:col-span-1">
             <Logo />
-            <p className="text-sm text-foreground/80">
+            <p className="text-sm text-muted-foreground">
               Your partner in global education and career opportunities.
             </p>
             <div className="flex space-x-4">
               <Link href="#" aria-label="Twitter">
-                <Twitter className="h-6 w-6 text-foreground/70 transition-colors hover:text-primary" />
+                <Twitter className="h-6 w-6 text-muted-foreground transition-colors hover:text-primary" />
               </Link>
               <Link href="#" aria-label="Facebook">
-                <Facebook className="h-6 w-6 text-foreground/70 transition-colors hover:text-primary" />
+                <Facebook className="h-6 w-6 text-muted-foreground transition-colors hover:text-primary" />
               </Link>
               <Link href="#" aria-label="Instagram">
-                <Instagram className="h-6 w-6 text-foreground/70 transition-colors hover:text-primary" />
+                <Instagram className="h-6 w-6 text-muted-foreground transition-colors hover:text-primary" />
               </Link>
               <Link href="#" aria-label="LinkedIn">
-                <Linkedin className="h-6 w-6 text-foreground/70 transition-colors hover:text-primary" />
+                <Linkedin className="h-6 w-6 text-muted-foreground transition-colors hover:text-primary" />
               </Link>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-8 md:col-span-3 md:grid-cols-3">
             <div>
-              <h3 className="font-headline text-sm font-semibold uppercase tracking-wider text-primary">
+              <h3 className="font-headline text-sm font-semibold uppercase tracking-wider text-foreground">
                 Services
               </h3>
               <ul className="mt-4 space-y-2">
@@ -52,7 +52,7 @@ export function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-sm text-foreground/80 transition-colors hover:text-primary"
+                      className="text-sm text-muted-foreground transition-colors hover:text-primary"
                     >
                       {link.name}
                     </Link>
@@ -61,7 +61,7 @@ export function Footer() {
               </ul>
             </div>
             <div>
-              <h3 className="font-headline text-sm font-semibold uppercase tracking-wider text-primary">
+              <h3 className="font-headline text-sm font-semibold uppercase tracking-wider text-foreground">
                 Support
               </h3>
               <ul className="mt-4 space-y-2">
@@ -69,7 +69,7 @@ export function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-sm text-foreground/80 transition-colors hover:text-primary"
+                      className="text-sm text-muted-foreground transition-colors hover:text-primary"
                     >
                       {link.name}
                     </Link>
@@ -78,8 +78,8 @@ export function Footer() {
               </ul>
             </div>
             <div>
-                <h3 className="font-headline text-sm font-semibold uppercase tracking-wider text-primary">Contact Info</h3>
-                <ul className="mt-4 space-y-2 text-sm text-foreground/80">
+                <h3 className="font-headline text-sm font-semibold uppercase tracking-wider text-foreground">Contact Info</h3>
+                <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                     <li>123 Education Lane,</li>
                     <li>Knowledge City, 54321</li>
                     <li><a href="tel:+1234567890" className="hover:text-primary">+1 (234) 567-890</a></li>
@@ -88,7 +88,7 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-8 border-t border-border pt-8 text-center text-sm text-foreground/60">
+        <div className="mt-8 border-t border-border pt-8 text-center text-sm text-muted-foreground">
           <p>
             &copy; {new Date().getFullYear()} One93 Global Pathways. All rights
             reserved.

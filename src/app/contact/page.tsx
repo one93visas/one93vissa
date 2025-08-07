@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import Image from "next/image";
@@ -57,21 +57,20 @@ export default function ContactPage() {
 
   return (
     <div className="bg-background">
-      <section className="relative overflow-hidden bg-gradient-to-b from-primary/10 to-secondary py-24 text-center sm:py-32">
-        <div className="container relative z-10 mx-auto">
-          <h1 className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl">
+       <section className="bg-secondary text-center">
+        <div className="container mx-auto px-4 py-24 sm:py-32 md:px-8">
+          <h1 className="font-headline text-4xl font-bold tracking-tighter text-foreground sm:text-5xl lg:text-6xl">
             Get In Touch
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-foreground/80">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
             We're here to help you with any questions. Reach out to us, and
             we'll respond as soon as we can.
           </p>
         </div>
-        <div className="absolute inset-0 z-0 bg-grid-slate-900/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05]" />
       </section>
 
       <section className="py-16 md:py-24">
-        <div className="container mx-auto grid grid-cols-1 gap-12 md:grid-cols-2">
+        <div className="container mx-auto grid grid-cols-1 gap-12 px-4 md:grid-cols-2 md:px-8">
           <Card>
             <CardHeader>
               <CardTitle className="font-headline text-2xl">
@@ -181,47 +180,53 @@ export default function ContactPage() {
           </Card>
 
           <div className="space-y-8">
-            <Card className="bg-primary/5">
-              <CardContent className="p-6">
-                <h3 className="font-headline text-2xl font-semibold text-primary">
+            <Card className="bg-card">
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl font-semibold text-primary">
                   Contact Information
-                </h3>
-                <p className="mt-2 text-foreground/80">
+                </CardTitle>
+                 <CardDescription>
                   Find us at our office or get in touch via phone or email.
-                </p>
-                <div className="mt-6 space-y-4">
-                  <div className="flex items-start space-x-4">
-                    <MapPin className="h-6 w-6 flex-shrink-0 text-accent" />
-                    <div>
-                      <h4 className="font-semibold">Our Office</h4>
-                      <p className="text-foreground/80">
-                        123 Education Lane, Knowledge City, 54321
-                      </p>
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 rounded-md bg-primary/10 p-2 text-primary">
+                        <MapPin className="h-5 w-5" />
                     </div>
+                  <div>
+                    <h4 className="font-semibold">Our Office</h4>
+                    <p className="text-muted-foreground">
+                      123 Education Lane, Knowledge City, 54321
+                    </p>
                   </div>
-                  <div className="flex items-start space-x-4">
-                    <Phone className="h-6 w-6 flex-shrink-0 text-accent" />
-                    <div>
-                      <h4 className="font-semibold">Phone</h4>
-                      <a
-                        href="tel:+1234567890"
-                        className="text-foreground/80 hover:text-primary"
-                      >
-                        +1 (234) 567-890
-                      </a>
+                </div>
+                <div className="flex items-start space-x-4">
+                     <div className="flex-shrink-0 rounded-md bg-primary/10 p-2 text-primary">
+                        <Phone className="h-5 w-5" />
                     </div>
+                  <div>
+                    <h4 className="font-semibold">Phone</h4>
+                    <a
+                      href="tel:+1234567890"
+                      className="text-muted-foreground hover:text-primary"
+                    >
+                      +1 (234) 567-890
+                    </a>
                   </div>
-                  <div className="flex items-start space-x-4">
-                    <Mail className="h-6 w-6 flex-shrink-0 text-accent" />
-                    <div>
-                      <h4 className="font-semibold">Email</h4>
-                      <a
-                        href="mailto:info@one93.com"
-                        className="text-foreground/80 hover:text-primary"
-                      >
-                        info@one93.com
-                      </a>
+                </div>
+                <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 rounded-md bg-primary/10 p-2 text-primary">
+                        <Mail className="h-5 w-5" />
                     </div>
+                  <div>
+                    <h4 className="font-semibold">Email</h4>
+                    <a
+                      href="mailto:info@one93.com"
+                      className="text-muted-foreground hover:text-primary"
+                    >
+                      info@one93.com
+                    </a>
                   </div>
                 </div>
               </CardContent>

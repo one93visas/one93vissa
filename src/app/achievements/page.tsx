@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Globe, GraduationCap, Star, Trophy, Users } from "lucide-react";
 
 const stats = [
@@ -84,21 +84,20 @@ const awards = [
 export default function AchievementsPage() {
   return (
     <div className="bg-background">
-      <section className="relative overflow-hidden bg-gradient-to-b from-primary/10 to-secondary py-24 text-center sm:py-32">
-        <div className="container relative z-10 mx-auto">
-          <h1 className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl">
+      <section className="bg-secondary text-center">
+        <div className="container mx-auto px-4 py-24 sm:py-32 md:px-8">
+          <h1 className="font-headline text-4xl font-bold tracking-tighter text-foreground sm:text-5xl lg:text-6xl">
             Our Legacy of Success
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-foreground/80">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
             Celebrating the milestones and success stories that define our
             journey.
           </p>
         </div>
-        <div className="absolute inset-0 z-0 bg-grid-slate-900/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05]" />
       </section>
 
       <section className="py-16 md:py-24">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             {stats.map((stat) => (
               <Card key={stat.label} className="text-center">
@@ -110,7 +109,7 @@ export default function AchievementsPage() {
                 <CardContent>
                   <p className="font-headline text-4xl font-bold text-primary">{stat.value}</p>
                   <p className="mt-2 text-lg font-semibold">{stat.label}</p>
-                  <p className="mt-1 text-sm text-foreground/70">{stat.description}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{stat.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -119,12 +118,12 @@ export default function AchievementsPage() {
       </section>
 
       <section className="bg-secondary py-16 md:py-24">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-4 md:px-8">
           <div className="text-center">
-            <h2 className="font-headline text-3xl font-bold text-primary">
+            <h2 className="font-headline text-3xl font-bold text-foreground">
               Student Success Stories
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-foreground/80">
+            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
               Our pride lies in the achievements of our students. Here are just a few of them.
             </p>
           </div>
@@ -142,10 +141,10 @@ export default function AchievementsPage() {
                 <CardHeader>
                   <CardTitle className="font-headline text-xl">{story.name}</CardTitle>
                   <p className="text-sm text-primary">{story.university}</p>
-                   <p className="text-sm text-foreground/70">{story.program}</p>
+                   <p className="text-sm text-muted-foreground">{story.program}</p>
                 </CardHeader>
                 <CardContent className="flex-grow">
-                  <p className="text-foreground/80">"{story.story}"</p>
+                  <p className="text-muted-foreground">"{story.story}"</p>
                 </CardContent>
               </Card>
             ))}
@@ -153,19 +152,19 @@ export default function AchievementsPage() {
         </div>
       </section>
        <section className="py-16 md:py-24">
-        <div className="container mx-auto text-center">
-           <h2 className="font-headline text-3xl font-bold text-primary">
+        <div className="container mx-auto px-4 text-center md:px-8">
+           <h2 className="font-headline text-3xl font-bold text-foreground">
               Awards & Recognition
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-foreground/80">
+            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
               Honored for our commitment to excellence in educational consulting.
             </p>
             <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
                 {awards.map(award => (
-                    <Card key={award.name} className="bg-primary/5">
+                    <Card key={award.name} className="bg-card">
                         <CardHeader>
-                            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-accent/20">
-                                <Star className="h-8 w-8 text-accent"/>
+                            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                                <Star className="h-8 w-8 text-primary"/>
                             </div>
                         </CardHeader>
                         <CardContent>

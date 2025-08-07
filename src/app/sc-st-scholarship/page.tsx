@@ -7,7 +7,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, ExternalLink } from "lucide-react";
-import Link from "next/link";
 
 const eligibilityCriteria = [
   "Must be an Indian citizen belonging to SC/ST category.",
@@ -48,52 +47,51 @@ const faqs = [
 export default function SCSTScholarshipPage() {
   return (
     <div className="bg-background">
-      <section className="relative overflow-hidden bg-gradient-to-b from-primary/10 to-secondary py-24 text-center sm:py-32">
-        <div className="container relative z-10 mx-auto">
-          <h1 className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl">
+      <section className="bg-secondary text-center">
+        <div className="container mx-auto px-4 py-24 sm:py-32 md:px-8">
+          <h1 className="font-headline text-4xl font-bold tracking-tighter text-foreground sm:text-5xl lg:text-6xl">
             SC/ST Scholarships
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-foreground/80">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
             Dedicated support for students from Scheduled Caste (SC) and
             Scheduled Tribe (ST) communities to pursue higher education.
           </p>
         </div>
-        <div className="absolute inset-0 z-0 bg-grid-slate-900/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05]" />
       </section>
 
       <section className="py-16 md:py-24">
-        <div className="container mx-auto grid grid-cols-1 gap-12 lg:grid-cols-3">
+        <div className="container mx-auto grid grid-cols-1 gap-12 px-4 lg:grid-cols-3 md:px-8">
             <div className="lg:col-span-2">
-                <h2 className="font-headline text-3xl font-bold text-primary">About the Scholarship Scheme</h2>
-                <p className="mt-4 text-foreground/80">
+                <h2 className="font-headline text-3xl font-bold text-foreground">About the Scholarship Scheme</h2>
+                <p className="mt-4 text-muted-foreground">
                     The Post-Matric Scholarship for SC/ST students is a Centrally Sponsored Scheme implemented by State Governments and Union Territory Administrations. The primary objective of the scheme is to provide financial assistance to Scheduled Caste and Scheduled Tribe students studying at post-matriculation or post-secondary stage to enable them to complete their education.
                 </p>
-                <p className="mt-4 text-foreground/80">
+                <p className="mt-4 text-muted-foreground">
                     These scholarships are available for studies in India only and are awarded by the government of the State/Union Territory to which the applicant actually belongs i.e., permanently settled.
                 </p>
 
-                <h3 className="mt-12 font-headline text-2xl font-bold text-primary">General Eligibility Criteria</h3>
+                <h3 className="mt-12 font-headline text-2xl font-bold text-foreground">General Eligibility Criteria</h3>
                  <ul className="mt-4 space-y-3">
                     {eligibilityCriteria.map((item, index) => (
                       <li key={index} className="flex items-start">
-                        <CheckCircle className="mr-3 h-5 w-5 flex-shrink-0 text-accent" />
-                        <span className="text-foreground/80">{item}</span>
+                        <CheckCircle className="mr-3 h-5 w-5 flex-shrink-0 text-primary" />
+                        <span className="text-muted-foreground">{item}</span>
                       </li>
                     ))}
                   </ul>
                 
-                <h3 className="mt-12 font-headline text-2xl font-bold text-primary">Required Documents</h3>
+                <h3 className="mt-12 font-headline text-2xl font-bold text-foreground">Required Documents</h3>
                  <ul className="mt-4 space-y-3">
                     {requiredDocuments.map((item, index) => (
                       <li key={index} className="flex items-start">
-                        <CheckCircle className="mr-3 h-5 w-5 flex-shrink-0 text-accent" />
-                        <span className="text-foreground/80">{item}</span>
+                        <CheckCircle className="mr-3 h-5 w-5 flex-shrink-0 text-primary" />
+                        <span className="text-muted-foreground">{item}</span>
                       </li>
                     ))}
                   </ul>
             </div>
             <div className="lg:col-span-1">
-                <Card className="sticky top-24 bg-primary/5">
+                <Card className="sticky top-24 bg-card">
                     <CardHeader>
                         <CardTitle className="font-headline">How to Apply</CardTitle>
                         <CardDescription>Follow these steps to apply for the scholarship.</CardDescription>
@@ -116,15 +114,15 @@ export default function SCSTScholarshipPage() {
       </section>
 
       <section className="bg-secondary py-16 md:py-24">
-        <div className="container mx-auto max-w-4xl">
+        <div className="container mx-auto max-w-4xl px-4 md:px-8">
             <div className="text-center">
-                <h2 className="font-headline text-3xl font-bold text-primary">Frequently Asked Questions</h2>
+                <h2 className="font-headline text-3xl font-bold text-foreground">Frequently Asked Questions</h2>
             </div>
             <Accordion type="single" collapsible className="mt-8 w-full">
                 {faqs.map((faq, index) => (
                     <AccordionItem value={`item-${index}`} key={index}>
                         <AccordionTrigger className="font-headline text-lg text-left">{faq.question}</AccordionTrigger>
-                        <AccordionContent className="text-foreground/80">
+                        <AccordionContent className="text-muted-foreground">
                            {faq.answer}
                         </AccordionContent>
                     </AccordionItem>

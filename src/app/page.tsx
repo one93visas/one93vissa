@@ -18,6 +18,7 @@ import {
   Trophy,
   Star,
   Users,
+  ArrowRight
 } from "lucide-react";
 
 const services = [
@@ -43,22 +44,22 @@ const services = [
 
 const achievements = [
   {
-    icon: <Users className="h-10 w-10 text-accent" />,
+    icon: <Users className="h-10 w-10 text-primary" />,
     value: "10,000+",
     label: "Students Counselled",
   },
   {
-    icon: <GraduationCap className="h-10 w-10 text-accent" />,
+    icon: <GraduationCap className="h-10 w-10 text-primary" />,
     value: "98%",
     label: "Visa Success Rate",
   },
   {
-    icon: <Globe className="h-10 w-10 text-accent" />,
+    icon: <Globe className="h-10 w-10 text-primary" />,
     value: "20+",
     label: "Countries",
   },
   {
-    icon: <Star className="h-10 w-10 text-accent" />,
+    icon: <Star className="h-10 w-10 text-primary" />,
     value: "15+",
     label: "Years of Experience",
   },
@@ -94,13 +95,13 @@ const testimonials = [
 export default function Home() {
   return (
     <div className="flex w-full flex-col">
-      <section className="relative w-full overflow-hidden bg-gradient-to-b from-primary/10 to-secondary py-24 sm:py-32">
-        <div className="container relative z-10 mx-auto grid grid-cols-1 items-center gap-12 text-center md:grid-cols-2 md:text-left">
-          <div className="space-y-6">
-            <h1 className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl">
+      <section className="w-full bg-background">
+        <div className="container mx-auto grid grid-cols-1 items-center gap-12 px-4 py-24 md:grid-cols-2 md:px-8 lg:py-32">
+          <div className="space-y-6 text-center md:text-left">
+            <h1 className="font-headline text-4xl font-bold tracking-tighter text-foreground sm:text-5xl lg:text-6xl">
               Your Global Future Starts Here
             </h1>
-            <p className="mx-auto max-w-xl text-lg leading-relaxed text-foreground/80 md:mx-0">
+            <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground md:mx-0">
               One93 Global Pathways is your trusted partner for studying abroad,
               test preparation, and finding scholarships. Let us guide you on
               your journey to success.
@@ -114,28 +115,27 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <div className="relative hidden h-auto w-full lg:block">
+          <div className="relative h-auto w-full">
             <Image
-              src="https://placehold.co/600x400"
-              alt="Students studying abroad"
+              src="https://placehold.co/600x450"
+              alt="Happy students celebrating graduation"
               data-ai-hint="happy students graduation"
               width={600}
-              height={400}
-              className="mx-auto aspect-video max-w-md overflow-hidden rounded-xl object-cover object-center shadow-2xl"
+              height={450}
+              className="mx-auto rounded-xl object-cover shadow-2xl"
             />
           </div>
         </div>
-        <div className="absolute inset-0 z-0 bg-grid-slate-900/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05]" />
       </section>
 
-      <section id="services" className="py-16 md:py-24">
-        <div className="container mx-auto">
+      <section id="services" className="bg-secondary py-16 md:py-24">
+        <div className="container mx-auto px-4 md:px-8">
           <div className="mb-12 text-center">
             <Badge variant="outline">Our Services</Badge>
-            <h2 className="mt-2 font-headline text-3xl font-bold text-primary md:text-4xl">
+            <h2 className="mt-2 font-headline text-3xl font-bold text-foreground md:text-4xl">
               What We Offer
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-foreground/80">
+            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
               We provide a comprehensive range of services to help you achieve
               your academic and career goals.
             </p>
@@ -144,44 +144,51 @@ export default function Home() {
             {services.map((service) => (
               <Card
                 key={service.title}
-                className="transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl"
+                className="transform overflow-hidden rounded-lg bg-card transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl"
               >
-                <CardHeader className="flex flex-col items-center gap-4 text-center">
-                  {service.icon}
-                  <CardTitle className="font-headline text-xl">
+                <CardHeader className="items-center text-center">
+                  <div className="rounded-full bg-primary/10 p-4">
+                    {service.icon}
+                  </div>
+                  <CardTitle className="font-headline text-xl pt-4">
                     {service.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
-                  <p className="text-foreground/80">{service.description}</p>
-                  <Button asChild variant="link" className="mt-4 font-bold">
-                    <Link href={service.link}>Explore &rarr;</Link>
-                  </Button>
+                  <p className="text-muted-foreground">{service.description}</p>
                 </CardContent>
+                <div className="px-6 pb-6">
+                  <Button asChild variant="link" className="font-bold w-full">
+                    <Link href={service.link}>Explore <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                  </Button>
+                </div>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-primary py-16 text-primary-foreground md:py-24">
-        <div className="container mx-auto">
+      <section className="bg-background py-16 md:py-24">
+        <div className="container mx-auto px-4 md:px-8">
           <div className="mb-12 text-center">
+             <Badge variant="outline">Our Achievements</Badge>
             <h2 className="font-headline text-3xl font-bold md:text-4xl">
-              Our Achievements
+              Proven Success
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-primary-foreground/80">
+            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
               Decades of experience and thousands of success stories.
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
             {achievements.map((achievement) => (
-              <div key={achievement.label} className="text-center">
-                {achievement.icon}
-                <div className="mt-2 text-4xl font-bold">
+              <div key={achievement.label}>
+                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-2">
+                    {achievement.icon}
+                  </div>
+                <div className="text-4xl font-bold text-primary">
                   {achievement.value}
                 </div>
-                <p className="text-sm text-primary-foreground/80">
+                <p className="text-muted-foreground">
                   {achievement.label}
                 </p>
               </div>
@@ -190,11 +197,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="testimonials" className="py-16 md:py-24">
-        <div className="container mx-auto">
+      <section id="testimonials" className="bg-secondary py-16 md:py-24">
+        <div className="container mx-auto px-4 md:px-8">
           <div className="mb-12 text-center">
             <Badge variant="outline">Testimonials</Badge>
-            <h2 className="mt-2 font-headline text-3xl font-bold text-primary md:text-4xl">
+            <h2 className="mt-2 font-headline text-3xl font-bold text-foreground md:text-4xl">
               From Our Successful Students
             </h2>
           </div>
@@ -210,9 +217,9 @@ export default function Home() {
                   key={index}
                   className="md:basis-1/2 lg:basis-1/3"
                 >
-                  <div className="p-1">
-                    <Card className="h-full">
-                      <CardContent className="flex flex-col items-center justify-center p-6 text-center">
+                  <div className="p-1 h-full">
+                    <Card className="h-full flex flex-col">
+                      <CardContent className="flex flex-col items-center justify-center p-6 text-center flex-grow">
                         <Avatar className="mb-4 h-20 w-20">
                           <AvatarImage
                             src={testimonial.image}
@@ -223,37 +230,39 @@ export default function Home() {
                             {testimonial.avatar}
                           </AvatarFallback>
                         </Avatar>
-                        <p className="italic text-foreground/80">
+                        <p className="italic text-muted-foreground">
                           "{testimonial.quote}"
                         </p>
-                        <p className="mt-4 font-bold font-headline text-primary">
+                      </CardContent>
+                       <CardHeader className="pt-0 text-center">
+                        <p className="mt-4 font-bold font-headline text-foreground">
                           {testimonial.name}
                         </p>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-sm text-primary">
                           {testimonial.title}
                         </p>
-                      </CardContent>
+                      </CardHeader>
                     </Card>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className="ml-8"/>
+            <CarouselNext className="mr-8"/>
           </Carousel>
         </div>
       </section>
 
-      <section className="bg-secondary">
-        <div className="container mx-auto py-16 text-center md:py-24">
-          <h2 className="font-headline text-3xl font-bold text-primary md:text-4xl">
+      <section className="bg-primary text-primary-foreground">
+        <div className="container mx-auto px-4 py-16 text-center md:py-24 md:px-8">
+          <h2 className="font-headline text-3xl font-bold md:text-4xl">
             Ready to Start Your Journey?
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-foreground/80">
+          <p className="mx-auto mt-4 max-w-xl text-primary-foreground/80">
             Contact us today for a free consultation and take the first step
             towards your global education.
           </p>
-          <Button asChild size="lg" className="mt-8 font-bold">
+          <Button asChild size="lg" className="mt-8 font-bold bg-background text-primary hover:bg-background/90">
             <Link href="/contact">Contact Us Now</Link>
           </Button>
         </div>

@@ -52,21 +52,20 @@ const destinations = [
 export default function StudyAbroadPage() {
   return (
     <div className="bg-background">
-      <section className="relative overflow-hidden bg-gradient-to-b from-primary/10 to-secondary py-24 text-center sm:py-32">
-        <div className="container relative z-10 mx-auto">
-          <h1 className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl">
+      <section className="bg-secondary text-center">
+        <div className="container mx-auto px-4 py-24 sm:py-32 md:px-8">
+          <h1 className="font-headline text-4xl font-bold tracking-tighter text-foreground sm:text-5xl lg:text-6xl">
             Study Abroad Destinations
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-foreground/80">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
             Explore world-class education in the most sought-after countries.
             Your global adventure awaits.
           </p>
         </div>
-        <div className="absolute inset-0 z-0 bg-grid-slate-900/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05]" />
       </section>
 
       <section className="py-16 md:py-24">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {destinations.map((dest) => (
               <Card key={dest.name} className="flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl">
@@ -84,7 +83,7 @@ export default function StudyAbroadPage() {
                     <CardTitle className="font-headline text-2xl text-primary">
                       {dest.name}
                     </CardTitle>
-                    <CardDescription className="mt-2 flex-grow text-foreground/80">
+                    <CardDescription className="mt-2 flex-grow text-muted-foreground">
                       {dest.description}
                     </CardDescription>
                     <div className="mt-4 flex flex-wrap gap-2">
@@ -93,7 +92,7 @@ export default function StudyAbroadPage() {
                         ))}
                     </div>
                 </div>
-                <CardFooter className="bg-secondary/50 p-4">
+                <CardFooter className="bg-secondary p-4">
                     <Button asChild variant="link" className="font-bold">
                         <Link href={`/contact?inquiry=Study_in_${dest.name}`}>Learn More &rarr;</Link>
                     </Button>
