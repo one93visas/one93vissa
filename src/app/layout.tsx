@@ -46,7 +46,7 @@ export default function RootLayout({
           fontPTSans.variable
         )}
       >
-        <div className="relative flex min-h-dvh flex-col bg-background">
+        <div className="relative flex min-h-dvh w-full flex-col bg-background">
           <Header />
           <main className="flex-1 w-full">{children}</main>
           <Footer />
