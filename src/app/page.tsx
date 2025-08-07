@@ -184,7 +184,7 @@ export default function Home() {
       <section id="services" className="bg-secondary py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-8">
           <div className="mb-12 text-center">
-            <h2 className="font-headline text-3xl font-bold text-foreground md:text-4xl">
+            <h2 className="font-headline text-3xl font-bold text-primary md:text-4xl">
               Empowering your international education journey
             </h2>
           </div>
@@ -215,7 +215,7 @@ export default function Home() {
        <section className="bg-background py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-8">
             <div className="text-center mb-12">
-                 <h2 className="font-headline text-3xl font-bold md:text-4xl">STUDY ABROAD</h2>
+                 <h2 className="font-headline text-3xl font-bold text-primary md:text-4xl">STUDY ABROAD</h2>
                  <Button asChild variant="link" className="font-bold text-lg mt-2">
                     <Link href="/study-abroad">Know More <ArrowRight className="ml-2 h-5 w-5" /></Link>
                   </Button>
@@ -240,7 +240,7 @@ export default function Home() {
                     <Image src="https://placehold.co/400x500" data-ai-hint="student desk" alt="Student at desk" width={400} height={500} className="rounded-lg object-cover mt-8" />
                 </div>
                 <div className="space-y-6">
-                    <h2 className="font-headline text-3xl font-bold md:text-4xl">GOVERNMENT Scholarship</h2>
+                    <h2 className="font-headline text-3xl font-bold text-primary md:text-4xl">GOVERNMENT Scholarship</h2>
                     <p className="text-muted-foreground italic">Important: Provide photocopies of academic documents and community certificate when joining.</p>
                     <div className="space-y-4">
                         <Card>
@@ -280,7 +280,7 @@ export default function Home() {
       <section className="bg-background py-16 md:py-24">
           <div className="container mx-auto px-4 md:px-8">
               <div className="text-center mb-12">
-                  <h2 className="font-headline text-3xl font-bold md:text-4xl">Why Choose Us</h2>
+                  <h2 className="font-headline text-3xl font-bold text-primary md:text-4xl">Why Choose Us</h2>
                   <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">We offer immersive language courses tailored to meet diverse learning needs, fostering fluency and cultural understanding in a supportive environment.</p>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
