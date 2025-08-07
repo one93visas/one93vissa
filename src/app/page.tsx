@@ -51,11 +51,11 @@ const whyChooseUsStats = [
 ];
 
 const countries = [
-  { name: "USA", flag: "🇺🇸" },
-  { name: "UK", flag: "🇬🇧" },
-  { name: "Australia", flag: "🇦🇺" },
-  { name: "Ireland", flag: "🇮🇪" },
-  { name: "Canada", flag: "🇨🇦" },
+  { name: "USA", code: "US" },
+  { name: "UK", code: "GB" },
+  { name: "Australia", code: "AU" },
+  { name: "Ireland", code: "IE" },
+  { name: "Canada", code: "CA" },
 ];
 
 export default function Home() {
@@ -222,9 +222,9 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 text-center">
                 {countries.map(country => (
-                    <div key={country.name} className="flex flex-col items-center space-y-3">
-                        <span className="text-6xl">{country.flag}</span>
-                        <p className="font-headline text-lg font-semibold">{country.name}</p>
+                    <div key={country.name} className="flex flex-col items-center space-y-2">
+                        <p className="font-headline text-5xl font-bold text-foreground">{country.code}</p>
+                        <p className="text-muted-foreground">{country.name}</p>
                     </div>
                 ))}
             </div>
