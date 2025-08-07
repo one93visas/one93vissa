@@ -223,8 +223,8 @@ export default function Home() {
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 text-center">
                 {countries.map(country => (
                     <div key={country.name} className="flex flex-col items-center space-y-2">
-                        <p className="font-headline text-5xl font-bold text-foreground">{country.code}</p>
-                        <p className="text-muted-foreground">{country.name}</p>
+                        <Image src={`https://flagsapi.com/${country.code}/flat/64.png`} alt={`${country.name} flag`} width={64} height={64} className="h-16 w-16 object-contain"/>
+                        <p className="font-headline text-lg font-bold text-foreground">{country.name}</p>
                     </div>
                 ))}
             </div>
