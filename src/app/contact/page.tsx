@@ -57,16 +57,17 @@ export default function ContactPage() {
 
   return (
     <div className="bg-background">
-      <section className="bg-secondary py-20 text-center">
-        <div className="container mx-auto">
-          <h1 className="font-headline text-4xl font-bold text-primary md:text-5xl">
+      <section className="relative overflow-hidden bg-gradient-to-b from-primary/10 to-secondary py-24 text-center sm:py-32">
+        <div className="container relative z-10 mx-auto">
+          <h1 className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl">
             Get In Touch
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-foreground/80">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-foreground/80">
             We're here to help you with any questions. Reach out to us, and
             we'll respond as soon as we can.
           </p>
         </div>
+        <div className="absolute inset-0 z-0 bg-grid-slate-900/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05]" />
       </section>
 
       <section className="py-16 md:py-24">

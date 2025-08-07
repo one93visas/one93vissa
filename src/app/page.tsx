@@ -94,10 +94,10 @@ const testimonials = [
 export default function Home() {
   return (
     <div className="flex flex-col">
-      <section className="bg-secondary py-20 md:py-32">
-        <div className="container mx-auto grid grid-cols-1 items-center gap-12 text-center md:grid-cols-2 md:text-left">
+      <section className="relative overflow-hidden bg-gradient-to-b from-primary/10 to-secondary py-24 sm:py-32">
+        <div className="container relative z-10 mx-auto grid grid-cols-1 items-center gap-12 text-center md:grid-cols-2 md:text-left">
           <div className="space-y-6">
-            <h1 className="font-headline text-4xl font-bold tracking-tighter text-primary md:text-5xl lg:text-6xl">
+            <h1 className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl">
               Your Global Future Starts Here
             </h1>
             <p className="mx-auto max-w-[600px] text-lg text-foreground/80 md:mx-0">
@@ -114,17 +114,18 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <div className="relative h-64 w-full md:h-auto md:w-full">
+          <div className="relative h-auto w-full">
             <Image
               src="https://placehold.co/600x400"
               alt="Students studying abroad"
               data-ai-hint="happy students graduation"
               width={600}
               height={400}
-              className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center"
+              className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center shadow-2xl"
             />
           </div>
         </div>
+        <div className="absolute inset-0 z-0 bg-grid-slate-900/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05]" />
       </section>
 
       <section id="services" className="py-16 md:py-24">
