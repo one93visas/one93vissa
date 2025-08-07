@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { CheckCircle, BookOpen, Target, BrainCircuit, MessageSquare, Laptop } from "lucide-react";
+import { CheckCircle, BookOpen, Target, BrainCircuit, MessageSquare, Laptop, GraduationCap } from "lucide-react";
 import Image from "next/image";
 
 const tests = [
