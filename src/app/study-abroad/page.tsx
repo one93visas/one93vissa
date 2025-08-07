@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { CtaSection } from "@/components/layout/cta-section";
 
 const destinations = [
   {
@@ -54,7 +55,7 @@ export default function StudyAbroadPage() {
     <div className="bg-background">
       <section className="w-full bg-gradient-to-r from-primary/10 via-background to-primary/10">
         <div className="container mx-auto px-4 py-24 text-center sm:py-32 md:px-8">
-          <h1 className="font-headline text-4xl font-bold tracking-tighter text-foreground sm:text-5xl lg:text-6xl">
+          <h1 className="font-headline text-4xl font-bold tracking-tighter text-foreground sm:text-5xl lg:text-6xl" style={{color: "#0f8a79"}}>
             Study Abroad Destinations
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
@@ -80,7 +81,7 @@ export default function StudyAbroadPage() {
                   />
                 </CardHeader>
                 <div className="flex flex-grow flex-col p-6">
-                    <CardTitle className="font-headline text-2xl text-primary">
+                    <CardTitle className="font-headline text-2xl text-primary" style={{color: "#0f8a79"}}>
                       {dest.name}
                     </CardTitle>
                     <CardDescription className="mt-2 flex-grow text-muted-foreground">
@@ -102,6 +103,8 @@ export default function StudyAbroadPage() {
           </div>
         </div>
       </section>
+
+      <CtaSection />
     </div>
   );
 }

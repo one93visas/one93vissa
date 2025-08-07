@@ -13,6 +13,7 @@ import {
   ArrowRight,
   CheckCircle,
 } from "lucide-react";
+import { CtaSection } from "@/components/layout/cta-section";
 
 const services = [
   {
@@ -294,6 +295,7 @@ export default function Home() {
           </div>
       </section>
 
+      <CtaSection />
     </div>
   );
 }

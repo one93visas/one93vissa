@@ -18,6 +18,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import Image from "next/image";
+import { CtaSection } from "@/components/layout/cta-section";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -59,7 +60,7 @@ export default function ContactPage() {
     <div className="bg-background">
        <section className="w-full bg-gradient-to-r from-primary/10 via-background to-primary/10">
         <div className="container mx-auto px-4 py-24 text-center sm:py-32 md:px-8">
-          <h1 className="font-headline text-4xl font-bold tracking-tighter text-foreground sm:text-5xl lg:text-6xl">
+          <h1 className="font-headline text-4xl font-bold tracking-tighter text-foreground sm:text-5xl lg:text-6xl" style={{color: "#0f8a79"}}>
             Get In Touch
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
@@ -73,7 +74,7 @@ export default function ContactPage() {
         <div className="container mx-auto grid grid-cols-1 gap-12 px-4 md:grid-cols-2 md:px-8">
           <Card>
             <CardHeader>
-              <CardTitle className="font-headline text-2xl">
+              <CardTitle className="font-headline text-2xl" style={{color: "#0f8a79"}}>
                 Send us a Message
               </CardTitle>
             </CardHeader>
@@ -182,7 +183,7 @@ export default function ContactPage() {
           <div className="space-y-8">
             <Card className="bg-card">
               <CardHeader>
-                <CardTitle className="font-headline text-2xl font-semibold text-primary">
+                <CardTitle className="font-headline text-2xl font-semibold text-primary" style={{color: "#0f8a79"}}>
                   Contact Information
                 </CardTitle>
                  <CardDescription>
@@ -237,6 +238,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <CtaSection />
     </div>
   );
 }

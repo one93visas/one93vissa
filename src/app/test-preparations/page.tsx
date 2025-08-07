@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { CheckCircle, BookOpen, Target, BrainCircuit, MessageSquare, Laptop, GraduationCap } from "lucide-react";
 import Image from "next/image";
+import { CtaSection } from "@/components/layout/cta-section";
 
 const tests = [
   {
@@ -54,7 +55,7 @@ export default function TestPreparationsPage() {
     <div className="bg-background">
       <section className="w-full bg-gradient-to-r from-primary/10 via-background to-primary/10">
         <div className="container mx-auto px-4 py-24 text-center sm:py-32 md:px-8">
-          <h1 className="font-headline text-4xl font-bold tracking-tighter text-foreground sm:text-5xl lg:text-6xl">
+          <h1 className="font-headline text-4xl font-bold tracking-tighter text-foreground sm:text-5xl lg:text-6xl" style={{color: "#0f8a79"}}>
             Test Preparations
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
@@ -74,7 +75,7 @@ export default function TestPreparationsPage() {
                       {test.icon}
                     </div>
                   <div>
-                    <CardTitle className="font-headline text-2xl">{test.name}</CardTitle>
+                    <CardTitle className="font-headline text-2xl" style={{color: "#0f8a79"}}>{test.name}</CardTitle>
                     <CardDescription className="text-sm">{test.fullName}</CardDescription>
                   </div>
                 </CardHeader>
@@ -108,7 +109,7 @@ export default function TestPreparationsPage() {
                 <Image src="https://placehold.co/600x400" alt="Student studying for an exam" data-ai-hint="student studying library" layout="fill" objectFit="cover" className="rounded-lg shadow-lg"/>
             </div>
             <div className="space-y-6">
-                <h2 className="font-headline text-3xl font-bold text-primary">Why Choose Our Prep Courses?</h2>
+                <h2 className="font-headline text-3xl font-bold text-primary" style={{color: "#0f8a79"}}>Why Choose Our Prep Courses?</h2>
                 <p className="text-muted-foreground">Our courses are more than just study material. We provide a structured learning environment designed to maximize your potential.</p>
                 <ul className="space-y-3">
                     <li className="flex items-start">
@@ -134,6 +135,8 @@ export default function TestPreparationsPage() {
             </div>
         </div>
       </section>
+
+      <CtaSection />
     </div>
   );
 }
