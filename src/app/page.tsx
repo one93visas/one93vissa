@@ -13,6 +13,10 @@ import {
   School,
   ArrowRight,
   CheckCircle,
+  Lightbulb,
+  BookCopy,
+  Scale,
+  XCircle,
 } from "lucide-react";
 import { CtaSection } from "@/components/layout/cta-section";
 
@@ -58,6 +62,29 @@ const countries = [
   { name: "Australia", code: "AU" },
   { name: "Ireland", code: "IE" },
   { name: "Canada", code: "CA" },
+];
+
+const scholarshipItems = [
+    {
+        icon: <GraduationCap className="h-8 w-8 text-accent" />,
+        title: "Education Status",
+        description: "Pursuing 4-1 or completed graduation",
+    },
+    {
+        icon: <Scale className="h-8 w-8 text-accent" />,
+        title: "GPA Requirement",
+        description: "Must have a GPA of 6.5 or above",
+    },
+    {
+        icon: <BookCopy className="h-8 w-8 text-accent" />,
+        title: "Backlogs Limit",
+        description: "Backlogs should not exceed 10",
+    },
+    {
+        icon: <Lightbulb className="h-8 w-8 text-accent" />,
+        title: "Free Consultancy",
+        description: "IELTS score of 6.5, GPA of 7, max 5 backlogs",
+    },
 ];
 
 export default function Home() {
@@ -248,47 +275,54 @@ export default function Home() {
 
       {/* Government Scholarship Section */}
       <section className="bg-secondary py-16 md:py-24">
-        <div className="container mx-auto px-4 md:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                 <div className="grid grid-cols-2 gap-4 md:gap-8">
-                    <Image src="https://placehold.co/400x500" data-ai-hint="student studying" alt="Student studying" width={400} height={500} className="rounded-lg object-cover" />
-                    <Image src="https://placehold.co/400x500" data-ai-hint="student desk" alt="Student at desk" width={400} height={500} className="rounded-lg object-cover mt-8" />
-                </div>
-                <div className="space-y-6">
-                    <h2 className="font-headline text-3xl font-bold md:text-4xl" style={{color: "#0f8a79"}}>GOVERNMENT Scholarship</h2>
-                    <p className="text-muted-foreground italic">Important: Provide photocopies of academic documents and community certificate when joining.</p>
-                    <div className="space-y-4">
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="text-lg">Education Status</CardTitle>
-                            </CardHeader>
-                            <CardContent><p className="text-muted-foreground">Pursuing 4-1 or completed graduation</p></CardContent>
-                        </Card>
-                         <Card>
-                            <CardHeader>
-                                <CardTitle className="text-lg">GPA Requirement</CardTitle>
-                            </CardHeader>
-                            <CardContent><p className="text-muted-foreground">Must have a GPA of 6.5 or above</p></CardContent>
-                        </Card>
-                         <Card>
-                            <CardHeader>
-                                <CardTitle className="text-lg">Backlogs Limit</CardTitle>
-                            </CardHeader>
-                            <CardContent><p className="text-muted-foreground">Backlogs should not exceed 10</p></CardContent>
-                        </Card>
-                         <Card className="bg-primary/10 border-primary">
-                            <CardHeader>
-                                <CardTitle className="text-lg text-primary">Free Consultancy</CardTitle>
-                            </CardHeader>
-                            <CardContent><p className="text-primary/90">IELTS score of 6.5, GPA of 7, max 5 backlogs</p></CardContent>
-                        </Card>
-                    </div>
-                     <Button asChild size="lg" variant="outline">
-                        <Link href="/sc-st-scholarship">Explore More</Link>
-                    </Button>
-                </div>
-            </div>
-        </div>
+          <div className="container mx-auto px-4 md:px-8">
+              <div className="mb-12 text-center">
+                  <Badge variant="default" className="bg-accent text-accent-foreground hover:bg-accent/90 mb-4">
+                      SCHOLARSHIP OPPORTUNITIES
+                  </Badge>
+                  <h2 className="font-headline text-3xl font-bold text-primary md:text-4xl">
+                      GOVERNMENT Scholarship Programs
+                  </h2>
+                  <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+                      Unlock your potential with government-sponsored scholarships. Check the eligibility criteria below.
+                  </p>
+              </div>
+
+              <div className="mx-auto max-w-4xl">
+                  <Card className="border-2 border-primary/20 shadow-xl">
+                      <CardContent className="p-8">
+                          <div className="mb-6 flex items-start gap-3 rounded-md border border-red-500/30 bg-red-50/50 p-4 text-red-700">
+                                <XCircle className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                                <p className="text-sm font-medium">
+                                    Important: Provide photocopies of academic documents and community certificate when joining.
+                                </p>
+                          </div>
+
+                          <div className="grid grid-cols-1 gap-x-8 gap-y-6 md:grid-cols-2">
+                              {scholarshipItems.map((item) => (
+                                  <div key={item.title} className="flex items-start gap-4">
+                                      <div className="flex-shrink-0 text-accent">
+                                          {item.icon}
+                                      </div>
+                                      <div>
+                                          <h3 className="font-headline text-lg font-semibold text-primary">{item.title}</h3>
+                                          <p className="text-muted-foreground">{item.description}</p>
+                                      </div>
+                                  </div>
+                              ))}
+                          </div>
+                      </CardContent>
+                  </Card>
+              </div>
+              
+              <div className="mt-12 text-center">
+                  <Button asChild size="lg" className="bg-accent font-bold text-accent-foreground hover:bg-accent/90">
+                      <Link href="/sc-st-scholarship">
+                          Explore More Scholarships <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                  </Button>
+              </div>
+          </div>
       </section>
       
       {/* Why Choose Us Section */}
