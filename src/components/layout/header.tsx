@@ -17,9 +17,9 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-8">
+      <div className="container mx-auto flex h-24 items-center justify-between px-4 md:px-8">
         <Link href="/" className="flex items-center space-x-2">
-          <Logo />
+          <Logo className="h-20" />
         </Link>
 
         {/* Mobile Nav */}
@@ -36,7 +36,7 @@ export function Header() {
               className="flex items-center"
               onClick={() => setIsOpen(false)}
             >
-              <Logo />
+              <Logo className="h-20" />
             </Link>
             <div className="mt-8 flex flex-col space-y-2">
               {NAV_LINKS.map((link) => (
