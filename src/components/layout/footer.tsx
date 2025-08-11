@@ -23,7 +23,7 @@ export function Footer() {
       <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="space-y-4 md:col-span-1">
-            <Logo className="h-24"/>
+            <Logo className="h-24 object-contain" />
             <p className="text-sm text-muted-foreground">
               Your partner in global education and career opportunities.
             </p>
