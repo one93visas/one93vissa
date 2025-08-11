@@ -72,7 +72,7 @@ const successStories = [
     university: "National University of Singapore",
     program: "MSc in Business Analytics",
     image: "https://placehold.co/400x300",
-    story: "The AI scholarship finder is a game-changer! It found niche scholarships that I would have never discovered on my own.",
+    story: "Their dedicated support was incredible. They found niche scholarships that I would have never discovered on my own.",
   },
 ];
 
