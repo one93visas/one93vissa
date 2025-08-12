@@ -63,7 +63,7 @@ export function CtaSection() {
           <Badge variant="default" className="bg-accent text-accent-foreground hover:bg-accent/90">
             GET STARTED
           </Badge>
-          <h2 className="font-headline text-4xl font-bold tracking-tight text-blue-900 md:text-5xl">
+          <h2 className="font-headline text-4xl font-bold tracking-tight text-blue-900 md:text-5xl" style={{color: "#1946e6"}}>
             Ready to Begin Your Journey?
           </h2>
           <p className="max-w-lg text-muted-foreground mx-auto md:mx-0">
@@ -79,7 +79,7 @@ export function CtaSection() {
 
         <Card className="rounded-xl shadow-2xl">
           <CardHeader>
-            <CardTitle className="font-headline text-center text-2xl font-bold text-blue-900">
+            <CardTitle className="font-headline text-center text-2xl font-bold text-blue-900" style={{color: "#1946e6"}}>
               Book Your Free Counselling
             </CardTitle>
           </CardHeader>

@@ -61,7 +61,7 @@ export default function StudyAbroadPage() {
     <div className="bg-background">
       <section className="w-full bg-gradient-to-r from-primary/10 via-background to-primary/10">
         <div className="container mx-auto px-4 py-24 text-center sm:py-32 md:px-8">
-          <h1 className="font-headline text-4xl font-bold tracking-tighter text-foreground sm:text-5xl lg:text-6xl" style={{color: "#1947E6"}}>
+          <h1 className="font-headline text-4xl font-bold tracking-tighter text-foreground sm:text-5xl lg:text-6xl" style={{color: "#1946e6"}}>
             Study Abroad with One93 VISAS
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
@@ -75,7 +75,7 @@ export default function StudyAbroadPage() {
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div className="text-center lg:text-left">
-              <h2 className="font-headline text-3xl font-bold text-primary" style={{color: "#1947E6"}}>Ideal Student Journey</h2>
+              <h2 className="font-headline text-3xl font-bold text-primary" style={{color: "#1946e6"}}>Ideal Student Journey</h2>
               <p className="mt-4 text-lg text-muted-foreground">We provide comprehensive support for your entire study abroad journey.</p>
               <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-4">
                 {idealJourneySteps.map((step) => (
@@ -109,7 +109,7 @@ export default function StudyAbroadPage() {
       <section className="bg-secondary py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-8">
             <div className="text-center">
-                <h2 className="font-headline text-3xl font-bold text-foreground" style={{color: "#1947E6"}}>USA Process - Study Abroad</h2>
+                <h2 className="font-headline text-3xl font-bold text-foreground" style={{color: "#1946e6"}}>USA Process - Study Abroad</h2>
                 <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
                     We assist you with comprehensive support for a smooth study abroad journey to the United States.
                 </p>
@@ -136,7 +136,7 @@ export default function StudyAbroadPage() {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-8">
             <div className="text-center">
-                <h2 className="font-headline text-3xl font-bold text-foreground" style={{color: "#1947E6"}}>UK - We Are Specialized In</h2>
+                <h2 className="font-headline text-3xl font-bold text-foreground" style={{color: "#1946e6"}}>UK - We Are Specialized In</h2>
                 <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
                     Our expertise in the UK admission process ensures a fast, affordable, and successful journey for our students.
                 </p>
@@ -161,7 +161,7 @@ export default function StudyAbroadPage() {
              <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
                 <Card>
                     <CardHeader>
-                        <CardTitle className="font-headline text-2xl" style={{color: "#1947E6"}}>Academic Requirements</CardTitle>
+                        <CardTitle className="font-headline text-2xl" style={{color: "#1946e6"}}>Academic Requirements</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div>
@@ -180,7 +180,7 @@ export default function StudyAbroadPage() {
                 </Card>
                  <Card>
                     <CardHeader>
-                        <CardTitle className="font-headline text-2xl" style={{color: "#1947E6"}}>Language Proficiency</CardTitle>
+                        <CardTitle className="font-headline text-2xl" style={{color: "#1946e6"}}>Language Proficiency</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div>

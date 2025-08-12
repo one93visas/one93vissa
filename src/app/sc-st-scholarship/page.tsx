@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { CheckCircle, Info, UserCheck, BookOpen, Star, GraduationCap, ArrowRight, TrendingUp, BarChart } from "lucide-react";
@@ -68,7 +67,7 @@ export default function SCSTScholarshipPage() {
     <div className="bg-background">
       <section className="w-full bg-gradient-to-b from-primary/10 to-background py-20 md:py-32">
         <div className="container mx-auto px-4 text-center md:px-8">
-          <h1 className="font-headline text-4xl font-extrabold tracking-tight text-primary sm:text-5xl lg:text-6xl">
+          <h1 className="font-headline text-4xl font-extrabold tracking-tight text-primary sm:text-5xl lg:text-6xl" style={{color: "#1946e6"}}>
             SC/ST Scholarships
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-xl text-muted-foreground font-semibold">
@@ -100,7 +99,7 @@ export default function SCSTScholarshipPage() {
       <section id="about" className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4 md:px-8">
             <div className="text-center">
-                <h2 className="font-headline text-3xl font-bold text-primary">About Scholarship</h2>
+                <h2 className="font-headline text-3xl font-bold text-primary" style={{color: "#1946e6"}}>About Scholarship</h2>
             </div>
             <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                 <Card className="lg:col-span-2">
@@ -164,7 +163,7 @@ export default function SCSTScholarshipPage() {
       <section id="eligibility" className="py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-8">
             <div className="text-center">
-                <h2 className="font-headline text-3xl font-bold text-primary">Eligibility Criteria</h2>
+                <h2 className="font-headline text-3xl font-bold text-primary" style={{color: "#1946e6"}}>Eligibility Criteria</h2>
             </div>
             <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {eligibilityCriteria.map((item) => (

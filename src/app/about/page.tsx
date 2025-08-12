@@ -54,7 +54,7 @@ export default function AboutUsPage() {
     <div className="bg-background">
       <section className="w-full bg-gradient-to-r from-primary/10 via-background to-primary/10">
         <div className="container mx-auto px-4 py-24 text-center sm:py-32 md:px-8">
-          <h1 className="font-headline text-4xl font-bold tracking-tighter text-foreground sm:text-5xl lg:text-6xl" style={{color: "#0f8a79"}}>
+          <h1 className="font-headline text-4xl font-bold tracking-tighter text-foreground sm:text-5xl lg:text-6xl" style={{color: "#1946e6"}}>
             About One93 Global Pathways
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
@@ -77,7 +77,7 @@ export default function AboutUsPage() {
             />
           </div>
           <div className="space-y-6 text-center md:text-left">
-            <h2 className="font-headline text-3xl font-bold text-primary" style={{color: "#0f8a79"}}>
+            <h2 className="font-headline text-3xl font-bold text-primary" style={{color: "#1946e6"}}>
               Our Story
             </h2>
             <p className="text-muted-foreground">
@@ -101,7 +101,7 @@ export default function AboutUsPage() {
       <section className="bg-secondary py-16 md:py-24">
         <div className="container mx-auto grid grid-cols-1 gap-12 px-4 md:grid-cols-2 md:px-8 text-center md:text-left">
           <div className="space-y-4">
-            <h3 className="font-headline text-2xl font-bold text-primary" style={{color: "#0f8a79"}}>
+            <h3 className="font-headline text-2xl font-bold text-primary" style={{color: "#1946e6"}}>
               Our Mission
             </h3>
             <p className="text-muted-foreground">
@@ -111,7 +111,7 @@ export default function AboutUsPage() {
             </p>
           </div>
           <div className="space-y-4">
-            <h3 className="font-headline text-2xl font-bold text-primary" style={{color: "#0f8a79"}}>
+            <h3 className="font-headline text-2xl font-bold text-primary" style={{color: "#1946e6"}}>
               Our Vision
             </h3>
             <p className="text-muted-foreground">
@@ -125,7 +125,7 @@ export default function AboutUsPage() {
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 text-center md:px-8">
-            <h2 className="font-headline text-3xl font-bold text-foreground" style={{color: "#0f8a79"}}>Our Core Values</h2>
+            <h2 className="font-headline text-3xl font-bold text-foreground" style={{color: "#1946e6"}}>Our Core Values</h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
                 The principles that guide our work and define our character.
             </p>
@@ -145,7 +145,7 @@ export default function AboutUsPage() {
 
       <section className="bg-secondary py-16 md:py-24">
         <div className="container mx-auto px-4 text-center md:px-8">
-          <h2 className="font-headline text-3xl font-bold text-foreground" style={{color: "#0f8a79"}}>
+          <h2 className="font-headline text-3xl font-bold text-foreground" style={{color: "#1946e6"}}>
             Meet Our Team
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
@@ -180,7 +180,7 @@ export default function AboutUsPage() {
       </section>
 
       <section className="container mx-auto px-4 py-16 text-center md:py-24 md:px-8">
-        <h2 className="font-headline text-3xl font-bold text-primary" style={{color: "#0f8a79"}}>
+        <h2 className="font-headline text-3xl font-bold text-primary" style={{color: "#1946e6"}}>
           Join Us on Your Journey
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">

@@ -168,13 +168,13 @@ export default function TestPreparationPage() {
           className="absolute inset-0 bg-no-repeat bg-center"
           style={{ backgroundImage: "url('/background-pattern.svg')", opacity: 0.1 }}
         />
-        <div className="container relative z-10 mx-auto flex flex-col lg:flex-row items-center justify-between gap-10 px-4 md:px-6">
-          <div className="flex flex-col justify-center space-y-6 text-center lg:text-left lg:w-1/2">
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl leading-tight text-[#facc15]">
+        <div className="container relative z-10 mx-auto grid grid-cols-1 items-center gap-10 px-4 md:grid-cols-2 md:px-6">
+          <div className="flex flex-col justify-center space-y-6 text-center lg:text-left">
+            <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-[#facc15] sm:text-5xl md:text-6xl lg:text-7xl">
               Test Preparation
             </h1>
-            <p className="text-2xl md:text-3xl font-bold text-white">Experience Exceptional Results!</p>
-            <p className="max-w-[600px] text-lg md:text-xl text-gray-200 leading-relaxed mx-auto lg:mx-0">
+            <p className="text-2xl font-bold text-white md:text-3xl">Experience Exceptional Results!</p>
+            <p className="mx-auto max-w-[600px] text-lg leading-relaxed text-gray-200 md:text-xl lg:mx-0">
               Master IELTS, PTE, DET, GRE, and SAT with One93 VISAS expert guidance and proven strategies.
             </p>
             <div className="flex justify-center lg:justify-start">
@@ -188,7 +188,7 @@ export default function TestPreparationPage() {
               </Link>
             </div>
           </div>
-          <div className="relative w-full lg:w-1/2 flex justify-center lg:justify-end mt-10 lg:mt-0">
+          <div className="relative flex w-full justify-center lg:justify-end mt-10 lg:mt-0">
             <div className="relative">
               <div className="absolute -inset-2.5 rounded-full bg-[#facc15]"/>
               <Image
@@ -211,7 +211,7 @@ export default function TestPreparationPage() {
             <span className="inline-block rounded-full bg-yellow-400 px-4 py-1 text-sm font-semibold text-blue-900 uppercase tracking-wide">
               Our Programs
             </span>
-            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl text-blue-900">Courses Offered</h2>
+            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl text-blue-900" style={{color: "#1946e6"}}>Courses Offered</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               Comprehensive test preparation programs designed to help you achieve your target scores.
             </p>
@@ -248,14 +248,14 @@ export default function TestPreparationPage() {
             <span className="inline-block rounded-full bg-yellow-400 px-4 py-1 text-sm font-semibold text-blue-900 uppercase tracking-wide">
               Flexible Learning
             </span>
-            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl text-blue-900">Start Learning Today!</h2>
+            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl text-blue-900" style={{color: "#1946e6"}}>Start Learning Today!</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               Learn anywhere, anytime with our flexible online and offline training options.
             </p>
           </div>
           <div className="mx-auto grid max-w-4xl items-center gap-12 lg:grid-cols-2">
             <div className="space-y-6">
-              <h3 className="text-3xl font-bold text-blue-900">Learn Anywhere, Anytime</h3>
+              <h3 className="text-3xl font-bold text-blue-900" style={{color: "#1946e6"}}>Learn Anywhere, Anytime</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <Monitor className="h-6 w-6 text-yellow-500 flex-shrink-0 mt-1" />
@@ -307,7 +307,7 @@ export default function TestPreparationPage() {
             <span className="inline-block rounded-full bg-yellow-400 px-4 py-1 text-sm font-semibold text-blue-900 uppercase tracking-wide">
               Our Methodology
             </span>
-            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl text-blue-900">Training Process</h2>
+            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl text-blue-900" style={{color: "#1946e6"}}>Training Process</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               A comprehensive approach to learning and development with our 10-step training process.
             </p>

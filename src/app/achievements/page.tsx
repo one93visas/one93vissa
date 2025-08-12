@@ -87,7 +87,7 @@ export default function AchievementsPage() {
     <div className="bg-background">
       <section className="w-full bg-gradient-to-r from-primary/10 via-background to-primary/10">
         <div className="container mx-auto px-4 py-24 text-center sm:py-32 md:px-8">
-          <h1 className="font-headline text-4xl font-bold tracking-tighter text-foreground sm:text-5xl lg:text-6xl" style={{color: "#0f8a79"}}>
+          <h1 className="font-headline text-4xl font-bold tracking-tighter text-foreground sm:text-5xl lg:text-6xl" style={{color: "#1946e6"}}>
             Our Legacy of Success
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
@@ -121,7 +121,7 @@ export default function AchievementsPage() {
       <section className="bg-secondary py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center">
-            <h2 className="font-headline text-3xl font-bold text-foreground" style={{color: "#0f8a79"}}>
+            <h2 className="font-headline text-3xl font-bold text-foreground" style={{color: "#1946e6"}}>
               Student Success Stories
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
@@ -154,7 +154,7 @@ export default function AchievementsPage() {
       </section>
        <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 text-center md:px-8">
-           <h2 className="font-headline text-3xl font-bold text-foreground" style={{color: "#0f8a79"}}>
+           <h2 className="font-headline text-3xl font-bold text-foreground" style={{color: "#1946e6"}}>
               Awards & Recognition
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
