@@ -59,14 +59,14 @@ export function CtaSection() {
   return (
     <section className="bg-background py-16 md:py-24">
       <div className="container mx-auto grid grid-cols-1 items-center gap-12 px-4 md:grid-cols-2 md:px-8">
-        <div className="space-y-6">
+        <div className="space-y-6 text-center md:text-left">
           <Badge variant="default" className="bg-accent text-accent-foreground hover:bg-accent/90">
             GET STARTED
           </Badge>
           <h2 className="font-headline text-4xl font-bold tracking-tight text-blue-900 md:text-5xl">
             Ready to Begin Your Journey?
           </h2>
-          <p className="max-w-lg text-muted-foreground">
+          <p className="max-w-lg text-muted-foreground mx-auto md:mx-0">
             Interested in studying abroad? Fill out the form below and our
             experts will contact you for a personalized 1:1 counselling session.
           </p>

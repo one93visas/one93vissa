@@ -17,6 +17,8 @@ import {
   MessageSquareQuote,
   Search,
   Users,
+  Home,
+  Zap,
 } from "lucide-react";
 import { CtaSection } from "@/components/layout/cta-section";
 
@@ -43,13 +45,13 @@ const usaProcessFeatures = [
 ];
 
 const ukSpecializations = [
-    { icon: <CalendarClock className="h-8 w-8 text-primary" />, title: "72-Hour Admission", description: "Rapid university acceptance" },
+    { icon: <Zap className="h-8 w-8 text-primary" />, title: "72-Hour Admission", description: "Rapid university acceptance within 72 hours" },
     { icon: <FileText className="h-8 w-8 text-primary" />, title: "No IELTS Needed", description: "Alternative qualifications accepted" },
     { icon: <Banknote className="h-8 w-8 text-primary" />, title: "Affordable Fees", description: "Quality education for only 15 Lakhs" },
     { icon: <GraduationCap className="h-8 w-8 text-primary" />, title: "Assured Support", description: "Scholarships and visa assistance" },
-    { icon: <Building className="h-8 w-8 text-primary" />, title: "Housing Help", description: "Complete accommodation assistance" },
+    { icon: <Home className="h-8 w-8 text-primary" />, title: "Housing Help", description: "Complete accommodation assistance" },
     { icon: <Award className="h-8 w-8 text-primary" />, title: "Loan Guidance", description: "Expert education loan assistance" },
-    { icon: <Check className="h-8 w-8 text-primary" />, title: "Start Now", description: "Begin without proof of funds" },
+    { icon: <Lightbulb className="h-8 w-8 text-primary" />, title: "Start Now", description: "Begin without proof of funds" },
     { icon: <BookCheck className="h-8 w-8 text-primary" />, title: "Free Applications", description: "No cost for applications" },
 ]
 
@@ -72,16 +74,16 @@ export default function StudyAbroadPage() {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div>
+            <div className="text-center lg:text-left">
               <h2 className="font-headline text-3xl font-bold text-primary" style={{color: "#1947E6"}}>Ideal Student Journey</h2>
               <p className="mt-4 text-lg text-muted-foreground">We provide comprehensive support for your entire study abroad journey.</p>
-              <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3">
+              <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-4">
                 {idealJourneySteps.map((step) => (
                   <div key={step.title} className="flex flex-col items-center text-center">
                     <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
                         {step.icon}
                     </div>
-                    <p className="mt-2 font-semibold">{step.title}</p>
+                    <p className="mt-2 font-semibold text-sm sm:text-base">{step.title}</p>
                   </div>
                 ))}
               </div>
@@ -89,7 +91,7 @@ export default function StudyAbroadPage() {
                     <Link href="/contact">View Details <ArrowRight className="ml-2 h-5 w-5"/></Link>
                 </Button>
             </div>
-            <div className="relative h-auto w-full">
+            <div className="relative h-auto w-full order-first lg:order-last">
                 <Image
                     src="https://placehold.co/600x600"
                     alt="Student studying with headphones"
@@ -139,7 +141,7 @@ export default function StudyAbroadPage() {
                     Our expertise in the UK admission process ensures a fast, affordable, and successful journey for our students.
                 </p>
             </div>
-            <div className="mt-12 grid grid-cols-2 gap-8 md:grid-cols-4">
+            <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
                 {ukSpecializations.map((item) => (
                      <div key={item.title} className="flex flex-col items-center text-center p-4 rounded-lg bg-card shadow-sm border">
                         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">
@@ -203,5 +205,3 @@ export default function StudyAbroadPage() {
     </div>
   );
 }
-
-    

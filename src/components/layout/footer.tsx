@@ -22,12 +22,12 @@ export function Footer() {
     <footer className="bg-secondary">
       <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-          <div className="space-y-4 md:col-span-1">
-            <Logo className="h-24 object-contain" />
+          <div className="space-y-4 md:col-span-1 text-center md:text-left">
+            <Logo className="h-24 object-contain mx-auto md:mx-0" />
             <p className="text-sm text-muted-foreground">
               Your partner in global education and career opportunities.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 justify-center md:justify-start">
               <Link href="#" aria-label="Twitter">
                 <Twitter className="h-6 w-6 text-muted-foreground transition-colors hover:text-primary" />
               </Link>
@@ -42,7 +42,7 @@ export function Footer() {
               </Link>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-8 md:col-span-3 md:grid-cols-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:col-span-3 text-center sm:text-left">
             <div>
               <h3 className="font-headline text-sm font-semibold uppercase tracking-wider text-foreground">
                 Services

@@ -99,11 +99,11 @@ export default function Home() {
       <section className="w-full bg-secondary">
         <div className="container mx-auto px-4 py-16 md:px-8 lg:py-24">
           <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
-            <div className="space-y-6">
+            <div className="space-y-6 text-center md:text-left">
               <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
                 Making your future brighter
               </h1>
-              <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
+              <p className="max-w-xl text-lg leading-relaxed text-muted-foreground mx-auto md:mx-0">
                 One93 Global Pathways guides students aspiring for international
                 education. Our expert team provides preparation for IELTS,
                 TOEFL, GRE, and SAT exams. We assist learners in achieving
@@ -114,7 +114,7 @@ export default function Home() {
                 <Link href="/about">Learn More</Link>
               </Button>
               <div className="mt-8 pt-6 border-t border-border">
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2 justify-center md:justify-start">
                   <div className="flex text-accent">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="h-5 w-5 fill-current" />
@@ -163,14 +163,14 @@ export default function Home() {
                         />
                     </div>
                 </div>
-                <div className="space-y-6">
+                <div className="space-y-6 text-center lg:text-left">
                     <Badge variant="default" className="bg-accent text-accent-foreground hover:bg-accent/90">
                         About Company
                     </Badge>
                     <h2 className="font-headline text-3xl font-bold md:text-4xl" style={{color: "#0f8a79"}}>
                         Take The Next Step Toward Your Education
                     </h2>
-                    <p className="max-w-xl leading-relaxed text-muted-foreground">
+                    <p className="max-w-xl leading-relaxed text-muted-foreground mx-auto lg:mx-0">
                         At One93 Global Pathways, we give students the support they need
                         to do well in IELTS, TOEFL, GRE, and SAT. We know every student
                         learns differently, so we make sure to help them in a way that
@@ -178,7 +178,7 @@ export default function Home() {
                         students get the scores they need to go to top universities
                         around the world.
                     </p>
-                    <ul className="space-y-3">
+                    <ul className="space-y-3 inline-block text-left">
                         <li className="flex items-center">
                             <CheckCircle className="mr-2 h-5 w-5 text-primary" />
                             Expert coaching
@@ -197,7 +197,7 @@ export default function Home() {
                         </li>
                     </ul>
                     <div className="grid grid-cols-1 gap-6 pt-4 sm:grid-cols-2">
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-4 justify-center sm:justify-start">
                             <div className="rounded-md bg-primary/10 p-3 text-primary">
                                 <Phone className="h-6 w-6" />
                             </div>
@@ -208,7 +208,7 @@ export default function Home() {
                                 </a>
                             </div>
                         </div>
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-4 justify-center sm:justify-start">
                             <div className="rounded-md bg-primary/10 p-3 text-primary">
                                 <Mail className="h-6 w-6" />
                             </div>
@@ -295,7 +295,7 @@ export default function Home() {
 
               <div className="mx-auto max-w-4xl">
                   <Card className="border-2 border-primary/20 shadow-xl">
-                      <CardContent className="p-8">
+                      <CardContent className="p-6 md:p-8">
                           <div className="mb-6 flex items-start gap-3 rounded-md border border-red-500/30 bg-red-50/50 p-4 text-red-700">
                                 <XCircle className="h-5 w-5 flex-shrink-0 mt-0.5" />
                                 <p className="text-sm font-medium">

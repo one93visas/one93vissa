@@ -183,7 +183,7 @@ export default function SCSTScholarshipPage() {
                         <Star className="h-10 w-10 text-accent mx-auto mb-2"/>
                         <CardTitle className="font-headline text-2xl text-accent-foreground">🌟 Special Opportunity 🌟</CardTitle>
                     </CardHeader>
-                    <CardContent className="text-center">
+                    <CardContent className="text-center px-2 sm:px-6">
                         <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
                             Students with an <strong className="text-primary">IELTS score of 6.5</strong> and <strong className="text-primary">GPA of 7</strong> with <strong className="text-primary">not more than 5 backlogs</strong> will be provided with free consultancy processing!
                         </p>

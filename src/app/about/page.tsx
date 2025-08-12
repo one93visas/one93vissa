@@ -76,7 +76,7 @@ export default function AboutUsPage() {
               className="rounded-lg shadow-lg"
             />
           </div>
-          <div className="space-y-6">
+          <div className="space-y-6 text-center md:text-left">
             <h2 className="font-headline text-3xl font-bold text-primary" style={{color: "#0f8a79"}}>
               Our Story
             </h2>
@@ -99,7 +99,7 @@ export default function AboutUsPage() {
       </section>
 
       <section className="bg-secondary py-16 md:py-24">
-        <div className="container mx-auto grid grid-cols-1 gap-12 px-4 md:grid-cols-2 md:px-8">
+        <div className="container mx-auto grid grid-cols-1 gap-12 px-4 md:grid-cols-2 md:px-8 text-center md:text-left">
           <div className="space-y-4">
             <h3 className="font-headline text-2xl font-bold text-primary" style={{color: "#0f8a79"}}>
               Our Mission
