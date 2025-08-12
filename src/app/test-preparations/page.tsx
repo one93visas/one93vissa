@@ -168,7 +168,7 @@ export default function TestPreparationPage() {
           className="absolute inset-0 bg-no-repeat bg-center"
           style={{ backgroundImage: "url('/background-pattern.svg')", opacity: 0.1 }}
         />
-        <div className="container relative z-10 grid lg:grid-cols-2 items-center gap-10 px-4 md:px-6">
+        <div className="container relative z-10 mx-auto grid lg:grid-cols-2 items-center gap-10 px-4 md:px-6">
           <div className="space-y-6 text-center lg:text-left">
             <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl leading-tight text-[#facc15]">
               Test Preparation
