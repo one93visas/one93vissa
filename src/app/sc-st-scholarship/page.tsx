@@ -1,134 +1,195 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, ExternalLink } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { CheckCircle, Info, UserCheck, BookOpen, Star, GraduationCap, ArrowRight, TrendingUp, BarChart } from "lucide-react";
+import Link from "next/link";
 import { CtaSection } from "@/components/layout/cta-section";
 
+const aboutCards = [
+    {
+        title: "About",
+        description: "Learn everything you need to know about SC/ST scholarships.",
+        icon: <Info className="h-8 w-8 text-primary" />,
+        href: "#about"
+    },
+    {
+        title: "Eligibility",
+        description: "Learn everything you need to know about the eligibility criteria for SC/ST scholarships.",
+        icon: <UserCheck className="h-8 w-8 text-primary" />,
+        href: "#eligibility"
+    },
+    {
+        title: "Registration Steps",
+        description: "Learn how to register for this scholarship.",
+        icon: <BookOpen className="h-8 w-8 text-primary" />,
+        href: "/contact"
+    },
+]
+
+const whatWeOffer = [
+    "Free GRE and IELTS preparation",
+    "Application assistance",
+    "Career counseling",
+    "Mentorship support"
+]
+
+const eligibility = [
+    "Pursuing 4-1 or completed graduation",
+    "GPA of 6.5 or above",
+    "Not more than 10 backlogs",
+]
+
+const one93visasFeatures = [
+    "Based in Uppal",
+    "Expert in IELTS, TOEFL, GRE, and SAT",
+    "Personalized coaching strategies"
+]
+
 const eligibilityCriteria = [
-  "Must be an Indian citizen belonging to SC/ST category.",
-  "Must have completed higher secondary education (10+2).",
-  "Must be enrolled in a full-time undergraduate or postgraduate course at a recognized university.",
-  "Annual family income should not exceed the limit set by the government.",
-  "Must not be availing any other scholarship for the same course.",
-];
-
-const requiredDocuments = [
-    "Caste Certificate (issued by a competent authority).",
-    "Income Certificate (issued by a competent authority).",
-    "Mark sheets of all previous qualifying examinations.",
-    "Proof of admission to the course.",
-    "Aadhaar Card and Bank Passbook.",
-    "Passport size photographs.",
-];
-
-const faqs = [
     {
-        question: "Can I apply if I am in my second year of college?",
-        answer: "Yes, students at any stage of their post-matric course are eligible to apply, provided they meet the other criteria."
+        icon: <GraduationCap className="h-10 w-10 text-accent" />,
+        title: "Education Level",
+        description: "Student should be pursuing 4-1 or completed graduation"
     },
     {
-        question: "Is there an income ceiling for parents/guardians?",
-        answer: "Yes, there is an annual income limit for the student's family to be eligible for the scholarship. This limit is updated by the government periodically. Please check the latest guidelines on the National Scholarship Portal."
+        icon: <TrendingUp className="h-10 w-10 text-accent" />,
+        title: "GPA Requirement",
+        description: "Must have a GPA of 6.5 or above"
     },
     {
-        question: "Where can I apply for these scholarships?",
-        answer: "Applications are typically submitted online through the National Scholarship Portal (NSP). Some states may also have their own dedicated portals."
-    },
-    {
-        question: "What does the scholarship cover?",
-        answer: "The scholarship typically covers tuition fees, examination fees, and other 'non-refundable' compulsory fees. It may also include a maintenance allowance for hostellers and day scholars."
+        icon: <BarChart className="h-10 w-10 text-accent" />,
+        title: "Backlog Limit",
+        description: "Backlogs should not exceed 10"
     }
 ]
 
 export default function SCSTScholarshipPage() {
   return (
     <div className="bg-background">
-      <section className="w-full bg-gradient-to-r from-primary/10 via-background to-primary/10">
-        <div className="container mx-auto px-4 py-24 text-center sm:py-32 md:px-8">
-          <h1 className="font-headline text-4xl font-bold tracking-tighter text-foreground sm:text-5xl lg:text-6xl" style={{color: "#0f8a79"}}>
+      <section className="w-full bg-gradient-to-b from-primary/10 to-background py-20 md:py-32">
+        <div className="container mx-auto px-4 text-center md:px-8">
+          <h1 className="font-headline text-4xl font-extrabold tracking-tight text-primary sm:text-5xl lg:text-6xl">
             SC/ST Scholarships
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            Dedicated support for students from Scheduled Caste (SC) and
-            Scheduled Tribe (ST) communities to pursue higher education.
+          <p className="mx-auto mt-6 max-w-2xl text-xl text-muted-foreground font-semibold">
+            Free GRE and IELTS will be provided
           </p>
+          <Button asChild size="lg" className="mt-8 font-bold">
+            <Link href="/contact">Apply Now <ArrowRight className="ml-2 h-5 w-5"/></Link>
+          </Button>
+          <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
+            {aboutCards.map(card => (
+                 <Link href={card.href} key={card.title}>
+                    <Card className="text-left h-full transition-shadow hover:shadow-xl cursor-pointer">
+                        <CardHeader className="flex flex-row items-start gap-4">
+                            <div className="flex-shrink-0 bg-primary/10 p-3 rounded-md">
+                                {card.icon}
+                            </div>
+                            <div>
+                                <CardTitle className="font-headline text-xl">{card.title}</CardTitle>
+                                <CardDescription className="mt-1">{card.description}</CardDescription>
+                            </div>
+                        </CardHeader>
+                    </Card>
+                 </Link>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto grid grid-cols-1 gap-12 px-4 lg:grid-cols-3 md:px-8">
-            <div className="lg:col-span-2">
-                <h2 className="font-headline text-3xl font-bold text-foreground" style={{color: "#0f8a79"}}>About the Scholarship Scheme</h2>
-                <p className="mt-4 text-muted-foreground">
-                    The Post-Matric Scholarship for SC/ST students is a Centrally Sponsored Scheme implemented by State Governments and Union Territory Administrations. The primary objective of the scheme is to provide financial assistance to Scheduled Caste and Scheduled Tribe students studying at post-matriculation or post-secondary stage to enable them to complete their education.
-                </p>
-                <p className="mt-4 text-muted-foreground">
-                    These scholarships are available for studies in India only and are awarded by the government of the State/Union Territory to which the applicant actually belongs i.e., permanently settled.
-                </p>
-
-                <h3 className="mt-12 font-headline text-2xl font-bold text-foreground" style={{color: "#0f8a79"}}>General Eligibility Criteria</h3>
-                 <ul className="mt-4 space-y-3">
-                    {eligibilityCriteria.map((item, index) => (
-                      <li key={index} className="flex items-start">
-                        <CheckCircle className="mr-3 h-5 w-5 flex-shrink-0 text-primary" />
-                        <span className="text-muted-foreground">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                
-                <h3 className="mt-12 font-headline text-2xl font-bold text-foreground" style={{color: "#0f8a79"}}>Required Documents</h3>
-                 <ul className="mt-4 space-y-3">
-                    {requiredDocuments.map((item, index) => (
-                      <li key={index} className="flex items-start">
-                        <CheckCircle className="mr-3 h-5 w-5 flex-shrink-0 text-primary" />
-                        <span className="text-muted-foreground">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+      <section id="about" className="py-16 md:py-24 bg-secondary">
+        <div className="container mx-auto px-4 md:px-8">
+            <div className="text-center">
+                <h2 className="font-headline text-3xl font-bold text-primary">About Scholarship</h2>
             </div>
-            <div className="lg:col-span-1">
-                <Card className="sticky top-24 bg-card">
+            <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                <Card className="lg:col-span-2">
                     <CardHeader>
-                        <CardTitle className="font-headline" style={{color: "#0f8a79"}}>How to Apply</CardTitle>
-                        <CardDescription>Follow these steps to apply for the scholarship.</CardDescription>
+                        <CardTitle className="font-headline text-xl">Overview</CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-4">
-                        <p><strong>Step 1:</strong> Visit the National Scholarship Portal (NSP) or your state's scholarship portal.</p>
-                        <p><strong>Step 2:</strong> Register and create a profile with accurate details.</p>
-                        <p><strong>Step 3:</strong> Fill out the scholarship application form carefully.</p>
-                        <p><strong>Step 4:</strong> Upload all the required documents in the specified format.</p>
-                        <p><strong>Step 5:</strong> Submit the application before the deadline and save a copy for your records.</p>
-                        <Button asChild className="w-full font-bold mt-4">
-                            <a href="https://scholarships.gov.in/" target="_blank" rel="noopener noreferrer">
-                                National Scholarship Portal <ExternalLink className="ml-2 h-4 w-4"/>
-                            </a>
-                        </Button>
+                    <CardContent>
+                        <p className="text-muted-foreground">Empowering SC/ST students to pursue higher education abroad through comprehensive support and guidance.</p>
+                    </CardContent>
+                </Card>
+                <Card>
+                    <CardHeader>
+                        <CardTitle className="font-headline text-xl">What We Offer</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <ul className="space-y-2">
+                            {whatWeOffer.map(item => (
+                                <li key={item} className="flex items-center">
+                                    <CheckCircle className="h-4 w-4 mr-2 text-primary flex-shrink-0"/>
+                                    <span className="text-muted-foreground">{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </CardContent>
+                </Card>
+                 <Card>
+                    <CardHeader>
+                        <CardTitle className="font-headline text-xl">Eligibility</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                         <ul className="space-y-2">
+                            {eligibility.map(item => (
+                                <li key={item} className="flex items-center">
+                                    <CheckCircle className="h-4 w-4 mr-2 text-primary flex-shrink-0"/>
+                                    <span className="text-muted-foreground">{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </CardContent>
+                </Card>
+                 <Card className="lg:col-span-4 bg-gradient-to-r from-primary/80 to-primary text-primary-foreground">
+                    <CardHeader>
+                        <CardTitle className="font-headline text-2xl">One93 VISAS</CardTitle>
+                        <CardDescription className="text-primary-foreground/80 text-lg">🌟 Experience Exceptional Results! 🌟</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <ul className="space-y-2 md:columns-3">
+                             {one93visasFeatures.map(item => (
+                                <li key={item} className="flex items-center mb-2">
+                                    <Star className="h-4 w-4 mr-2 text-accent flex-shrink-0"/>
+                                    <span>{item}</span>
+                                </li>
+                            ))}
+                        </ul>
                     </CardContent>
                 </Card>
             </div>
         </div>
       </section>
 
-      <section className="bg-secondary py-16 md:py-24">
-        <div className="container mx-auto max-w-4xl px-4 md:px-8">
+      <section id="eligibility" className="py-16 md:py-24">
+        <div className="container mx-auto px-4 md:px-8">
             <div className="text-center">
-                <h2 className="font-headline text-3xl font-bold text-foreground" style={{color: "#0f8a79"}}>Frequently Asked Questions</h2>
+                <h2 className="font-headline text-3xl font-bold text-primary">Eligibility Criteria</h2>
             </div>
-            <Accordion type="single" collapsible className="mt-8 w-full">
-                {faqs.map((faq, index) => (
-                    <AccordionItem value={`item-${index}`} key={index}>
-                        <AccordionTrigger className="font-headline text-lg text-left">{faq.question}</AccordionTrigger>
-                        <AccordionContent className="text-muted-foreground">
-                           {faq.answer}
-                        </AccordionContent>
-                    </AccordionItem>
+            <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                {eligibilityCriteria.map((item) => (
+                    <Card key={item.title} className="text-center p-6">
+                        <div className="flex justify-center items-center mb-4 bg-accent/10 p-4 rounded-full w-fit mx-auto">
+                            {item.icon}
+                        </div>
+                        <h3 className="font-headline text-xl font-bold">{item.title}</h3>
+                        <p className="mt-2 text-muted-foreground">{item.description}</p>
+                    </Card>
                 ))}
-            </Accordion>
+            </div>
+             <div className="mt-12">
+                <Card className="bg-accent/10 border-accent">
+                    <CardHeader className="text-center">
+                        <Star className="h-10 w-10 text-accent mx-auto mb-2"/>
+                        <CardTitle className="font-headline text-2xl text-accent-foreground">🌟 Special Opportunity 🌟</CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-center">
+                        <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                            Students with an <strong className="text-primary">IELTS score of 6.5</strong> and <strong className="text-primary">GPA of 7</strong> with <strong className="text-primary">not more than 5 backlogs</strong> will be provided with free consultancy processing!
+                        </p>
+                    </CardContent>
+                </Card>
+            </div>
         </div>
       </section>
 
