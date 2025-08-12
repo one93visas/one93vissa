@@ -174,7 +174,7 @@ export default function TestPreparationPage() {
         />
         <div className="container relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 px-4 md:px-6">
           <div className="flex flex-col justify-center space-y-6 text-center lg:text-left lg:w-1/2">
-            <h1 className="font-headline text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl leading-tight text-accent drop-shadow-lg">
+            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl leading-tight text-accent drop-shadow-lg">
               Test Preparation
             </h1>
             <p className="text-2xl md:text-3xl font-bold text-gray-100">Experience Exceptional Results!</p>
