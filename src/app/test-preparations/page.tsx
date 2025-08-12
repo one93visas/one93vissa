@@ -168,8 +168,8 @@ export default function TestPreparationPage() {
           className="absolute inset-0 bg-no-repeat bg-center"
           style={{ backgroundImage: "url('/background-pattern.svg')", opacity: 0.1 }}
         />
-        <div className="container relative z-10 mx-auto grid lg:grid-cols-2 items-center gap-10 px-4 md:px-6">
-          <div className="space-y-6 text-center lg:text-left">
+        <div className="container relative z-10 mx-auto flex flex-col lg:flex-row items-center justify-between gap-10 px-4 md:px-6">
+          <div className="flex flex-col justify-center space-y-6 text-center lg:text-left lg:w-1/2">
             <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl leading-tight text-[#facc15]">
               Test Preparation
             </h1>
@@ -188,7 +188,7 @@ export default function TestPreparationPage() {
               </Link>
             </div>
           </div>
-          <div className="relative w-full max-w-md mx-auto lg:max-w-none lg:mx-0 flex justify-center lg:justify-end">
+          <div className="relative w-full lg:w-1/2 flex justify-center lg:justify-end mt-10 lg:mt-0">
             <div className="relative">
               <div className="absolute -inset-2.5 rounded-full bg-[#facc15]"/>
               <Image
@@ -206,7 +206,7 @@ export default function TestPreparationPage() {
 
       {/* Courses Offered Section */}
       <section className="w-full py-16 md:py-24 lg:py-32 bg-white">
-        <div className="container px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <span className="inline-block rounded-full bg-yellow-400 px-4 py-1 text-sm font-semibold text-blue-900 uppercase tracking-wide">
               Our Programs
@@ -243,7 +243,7 @@ export default function TestPreparationPage() {
 
       {/* Start Learning Today Section */}
       <section className="w-full py-16 md:py-24 lg:py-32 bg-gray-100">
-        <div className="container px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <span className="inline-block rounded-full bg-yellow-400 px-4 py-1 text-sm font-semibold text-blue-900 uppercase tracking-wide">
               Flexible Learning
@@ -302,7 +302,7 @@ export default function TestPreparationPage() {
 
       {/* Training Process Section */}
       <section className="w-full py-16 md:py-24 lg:py-32 bg-white">
-        <div className="container px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <span className="inline-block rounded-full bg-yellow-400 px-4 py-1 text-sm font-semibold text-blue-900 uppercase tracking-wide">
               Our Methodology
@@ -340,7 +340,7 @@ export default function TestPreparationPage() {
 
       {/* Unique Learning Approach Section */}
       <section className="w-full py-16 md:py-24 lg:py-32 bg-blue-900 text-white">
-        <div className="container px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <span className="inline-block rounded-full bg-yellow-400 px-4 py-1 text-sm font-semibold text-blue-900 uppercase tracking-wide">
               What Makes Us Different
