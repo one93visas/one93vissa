@@ -60,12 +60,11 @@ export default function ContactPage() {
     <div className="bg-background">
        <section className="w-full bg-gradient-to-r from-primary/10 via-background to-primary/10">
         <div className="container mx-auto px-4 py-24 text-center sm:py-32 md:px-8">
-          <h1 className="font-headline text-4xl font-bold tracking-tighter text-foreground sm:text-5xl lg:text-6xl" style={{color: "#1946e6"}}>
+          <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl lg:text-6xl" style={{color: "#1946e6"}}>
             Get In Touch
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            We're here to help you with any questions. Reach out to us, and
-            we'll respond as soon as we can.
+          <p className="mx-auto mt-6 max-w-3xl text-lg text-muted-foreground">
+            One93 Visas ensures a smooth and hassle-free experience. The service covers various countries, including popular destinations like the USA, Canada, Australia, and the UK. Their team assists with visa interviews, offers personalized advice, and helps navigate complex immigration laws, ensuring clients meet all requirements for a successful application. Whether you’re applying for a student visa, work permit, or permanent residency, One93 has the expertise to guide you every step of the way.
           </p>
         </div>
       </section>
@@ -198,7 +197,7 @@ export default function ContactPage() {
                   <div>
                     <h4 className="font-semibold">Our Office</h4>
                     <p className="text-muted-foreground">
-                      123 Education Lane, Knowledge City, 54321
+                      #304, 3rd Floor, Padmaja,s Raja Enclave, Beside KS Backers, KPHB, Kukatpally, Hyderabad-72, Telangana, INDIA
                     </p>
                   </div>
                 </div>
@@ -209,10 +208,28 @@ export default function ContactPage() {
                   <div>
                     <h4 className="font-semibold">Phone</h4>
                     <a
-                      href="tel:+1234567890"
-                      className="text-muted-foreground hover:text-primary"
+                      href="tel:9121225066"
+                      className="text-muted-foreground hover:text-primary block"
                     >
-                      +1 (234) 567-890
+                      9121225066
+                    </a>
+                     <a
+                      href="tel:9121225067"
+                      className="text-muted-foreground hover:text-primary block"
+                    >
+                      9121225067
+                    </a>
+                     <a
+                      href="tel:9121225068"
+                      className="text-muted-foreground hover:text-primary block"
+                    >
+                      9121225068
+                    </a>
+                    <a
+                      href="tel:+914048502636"
+                      className="text-muted-foreground hover:text-primary block"
+                    >
+                      +91-40-48502636
                     </a>
                   </div>
                 </div>
@@ -223,10 +240,16 @@ export default function ContactPage() {
                   <div>
                     <h4 className="font-semibold">Email</h4>
                     <a
-                      href="mailto:info@one93.com"
-                      className="text-muted-foreground hover:text-primary"
+                      href="mailto:info@one93visas.com"
+                      className="text-muted-foreground hover:text-primary block"
                     >
-                      info@one93.com
+                      info@one93visas.com
+                    </a>
+                     <a
+                      href="mailto:one93visas@gmail.com"
+                      className="text-muted-foreground hover:text-primary block"
+                    >
+                      one93visas@gmail.com
                     </a>
                   </div>
                 </div>

@@ -25,7 +25,7 @@ export function Footer() {
           <div className="space-y-4 md:col-span-1 text-center md:text-left">
             <Logo className="h-24 object-contain mx-auto md:mx-0" />
             <p className="text-sm text-muted-foreground">
-              Your partner in global education and career opportunities.
+             One93 Visas ensures a smooth and hassle-free experience for various countries like the USA, Canada, Australia, and the UK.
             </p>
             <div className="flex space-x-4 justify-center md:justify-start">
               <Link href="#" aria-label="Twitter">
@@ -80,10 +80,13 @@ export function Footer() {
             <div>
                 <h3 className="font-headline text-sm font-semibold uppercase tracking-wider text-foreground">Contact Info</h3>
                 <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                    <li>123 Education Lane,</li>
-                    <li>Knowledge City, 54321</li>
-                    <li><a href="tel:+1234567890" className="hover:text-primary">+1 (234) 567-890</a></li>
-                    <li><a href="mailto:info@one93.com" className="hover:text-primary">info@one93.com</a></li>
+                    <li>#304, 3rd Floor, Padmaja,s Raja Enclave,</li>
+                    <li>Beside KS Backers, KPHB, Kukatpally,</li>
+                     <li>Hyderabad-72, Telangana, INDIA</li>
+                    <li><a href="tel:9121225066" className="hover:text-primary">9121225066</a>/<a href="tel:9121225067" className="hover:text-primary">67</a>/<a href="tel:9121225068" className="hover:text-primary">68</a></li>
+                    <li><a href="tel:+914048502636" className="hover:text-primary">+91-40-48502636</a></li>
+                    <li><a href="mailto:info@one93visas.com" className="hover:text-primary">info@one93visas.com</a></li>
+                    <li><a href="mailto:one93visas@gmail.com" className="hover:text-primary">one93visas@gmail.com</a></li>
                 </ul>
             </div>
           </div>
