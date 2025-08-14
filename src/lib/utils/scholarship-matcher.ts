@@ -13,7 +13,7 @@ function parseRange(rangeStr: string): [number, number] {
         }
         return [parseFloat(numbers[0]), parseFloat(numbers[0])];
     }
-    const-sorted = numbers.map(n => parseFloat(n)).sort((a, b) => a - b);
+    const sorted = numbers.map(n => parseFloat(n)).sort((a, b) => a - b);
     return [sorted[0], sorted[1]];
 }
 
@@ -159,5 +159,3 @@ export function matchUniversities(
 
   return scoredUniversities;
 }
-
-    
