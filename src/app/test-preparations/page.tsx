@@ -163,14 +163,14 @@ export default function TestPreparationPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative w-full py-20 md:py-32 lg:py-40 bg-[#2853a0] text-white overflow-hidden">
+      <section className="relative w-full overflow-hidden bg-blue-900 text-white">
         <div
           className="absolute inset-0 bg-no-repeat bg-center"
           style={{ backgroundImage: "url('/background-pattern.svg')", opacity: 0.1 }}
         />
-        <div className="container relative z-10 mx-auto grid grid-cols-1 items-center gap-10 px-4 md:grid-cols-2 md:px-6">
+        <div className="container relative z-10 mx-auto grid grid-cols-1 items-center gap-10 px-4 py-20 md:grid-cols-2 md:py-32 md:px-6 lg:py-40">
           <div className="flex flex-col justify-center space-y-6 text-center lg:text-left">
-            <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-[#facc15] sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-yellow-400 sm:text-5xl md:text-6xl lg:text-7xl">
               Test Preparation
             </h1>
             <p className="text-2xl font-bold text-white md:text-3xl">Experience Exceptional Results!</p>
@@ -180,7 +180,7 @@ export default function TestPreparationPage() {
             <div className="flex justify-center lg:justify-start">
               <Link
                 href="/contact"
-                className="inline-flex h-12 items-center justify-center rounded-full bg-[#facc15] px-8 text-base font-semibold text-[#2853a0] shadow-lg transition-all hover:bg-yellow-400 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-300 disabled:pointer-events-none disabled:opacity-50"
+                className="inline-flex h-12 items-center justify-center rounded-full bg-yellow-400 px-8 text-base font-semibold text-blue-900 shadow-lg transition-all hover:bg-yellow-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-300 disabled:pointer-events-none disabled:opacity-50"
                 prefetch={false}
               >
                 Apply Now
@@ -188,9 +188,9 @@ export default function TestPreparationPage() {
               </Link>
             </div>
           </div>
-          <div className="relative flex w-full justify-center lg:justify-end mt-10 lg:mt-0">
+          <div className="relative mt-10 flex w-full justify-center lg:mt-0 lg:justify-end">
             <div className="relative">
-              <div className="absolute -inset-2.5 rounded-full bg-[#facc15]"/>
+              <div className="absolute -inset-2.5 rounded-full bg-yellow-400"/>
               <Image
                 src="https://placehold.co/500x500"
                 alt="Test Preparation"
@@ -211,7 +211,7 @@ export default function TestPreparationPage() {
             <span className="inline-block rounded-full bg-yellow-400 px-4 py-1 text-sm font-semibold text-blue-900 uppercase tracking-wide">
               Our Programs
             </span>
-            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl text-blue-900" style={{color: "#1946e6"}}>Courses Offered</h2>
+            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl" style={{color: "#1946e6"}}>Courses Offered</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               Comprehensive test preparation programs designed to help you achieve your target scores.
             </p>
@@ -248,14 +248,14 @@ export default function TestPreparationPage() {
             <span className="inline-block rounded-full bg-yellow-400 px-4 py-1 text-sm font-semibold text-blue-900 uppercase tracking-wide">
               Flexible Learning
             </span>
-            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl text-blue-900" style={{color: "#1946e6"}}>Start Learning Today!</h2>
+            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl" style={{color: "#1946e6"}}>Start Learning Today!</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               Learn anywhere, anytime with our flexible online and offline training options.
             </p>
           </div>
           <div className="mx-auto grid max-w-4xl items-center gap-12 lg:grid-cols-2">
             <div className="space-y-6">
-              <h3 className="text-3xl font-bold text-blue-900" style={{color: "#1946e6"}}>Learn Anywhere, Anytime</h3>
+              <h3 className="text-3xl font-bold" style={{color: "#1946e6"}}>Learn Anywhere, Anytime</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <Monitor className="h-6 w-6 text-yellow-500 flex-shrink-0 mt-1" />
@@ -307,7 +307,7 @@ export default function TestPreparationPage() {
             <span className="inline-block rounded-full bg-yellow-400 px-4 py-1 text-sm font-semibold text-blue-900 uppercase tracking-wide">
               Our Methodology
             </span>
-            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl text-blue-900" style={{color: "#1946e6"}}>Training Process</h2>
+            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl" style={{color: "#1946e6"}}>Training Process</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               A comprehensive approach to learning and development with our 10-step training process.
             </p>

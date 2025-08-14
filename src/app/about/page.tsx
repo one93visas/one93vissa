@@ -77,7 +77,7 @@ export default function AboutUsPage() {
             />
           </div>
           <div className="space-y-6 text-center md:text-left">
-            <h2 className="font-headline text-3xl font-bold text-primary" style={{color: "#1946e6"}}>
+            <h2 className="font-headline text-3xl font-bold" style={{color: "#1946e6"}}>
               Our Story
             </h2>
             <p className="text-muted-foreground">
@@ -101,7 +101,7 @@ export default function AboutUsPage() {
       <section className="bg-secondary py-16 md:py-24">
         <div className="container mx-auto grid grid-cols-1 gap-12 px-4 md:grid-cols-2 md:px-8 text-center md:text-left">
           <div className="space-y-4">
-            <h3 className="font-headline text-2xl font-bold text-primary" style={{color: "#1946e6"}}>
+            <h3 className="font-headline text-2xl font-bold" style={{color: "#1946e6"}}>
               Our Mission
             </h3>
             <p className="text-muted-foreground">
@@ -111,7 +111,7 @@ export default function AboutUsPage() {
             </p>
           </div>
           <div className="space-y-4">
-            <h3 className="font-headline text-2xl font-bold text-primary" style={{color: "#1946e6"}}>
+            <h3 className="font-headline text-2xl font-bold" style={{color: "#1946e6"}}>
               Our Vision
             </h3>
             <p className="text-muted-foreground">
@@ -180,14 +180,14 @@ export default function AboutUsPage() {
       </section>
 
       <section className="container mx-auto px-4 py-16 text-center md:py-24 md:px-8">
-        <h2 className="font-headline text-3xl font-bold text-primary" style={{color: "#1946e6"}}>
+        <h2 className="font-headline text-3xl font-bold" style={{color: "#1946e6"}}>
           Join Us on Your Journey
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
           Ready to take the next step? We're here to help you navigate your
           path to a successful future.
         </p>
-        <Button asChild size="lg" className="mt-8 font-bold">
+        <Button asChild size="lg" className="mt-8 font-bold bg-accent text-accent-foreground hover:bg-accent/90">
           <Link href="/contact">Contact Us</Link>
         </Button>
       </section>

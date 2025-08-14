@@ -99,7 +99,7 @@ export default function Home() {
       <section className="w-full bg-secondary">
         <div className="container mx-auto grid grid-cols-1 items-center gap-12 px-4 py-16 md:grid-cols-2 md:px-8 lg:py-24">
           <div className="space-y-6 text-center md:text-left">
-            <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl" style={{color: "#1946e6"}}>
               Making your future brighter
             </h1>
             <p className="mx-auto max-w-xl text-lg leading-relaxed text-muted-foreground md:mx-0">
@@ -109,7 +109,7 @@ export default function Home() {
               their academic goals through personalised mentoring and focused
               instruction in Hyderabad, Uppal.
             </p>
-            <Button asChild size="lg" className="font-bold">
+            <Button asChild size="lg" className="font-bold bg-accent text-accent-foreground hover:bg-accent/90">
               <Link href="/about">Learn More</Link>
             </Button>
             <div className="mt-8 border-t border-border pt-6">
@@ -283,7 +283,7 @@ export default function Home() {
                   <Badge variant="default" className="bg-accent text-accent-foreground hover:bg-accent/90 mb-4">
                       SCHOLARSHIP OPPORTUNITIES
                   </Badge>
-                  <h2 className="font-headline text-3xl font-bold text-primary md:text-4xl">
+                  <h2 className="font-headline text-3xl font-bold text-primary md:text-4xl" style={{color: "#1946e6"}}>
                       GOVERNMENT Scholarship Programs
                   </h2>
                   <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">

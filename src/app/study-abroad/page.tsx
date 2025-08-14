@@ -75,7 +75,7 @@ export default function StudyAbroadPage() {
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div className="text-center lg:text-left">
-              <h2 className="font-headline text-3xl font-bold text-primary" style={{color: "#1946e6"}}>Ideal Student Journey</h2>
+              <h2 className="font-headline text-3xl font-bold" style={{color: "#1946e6"}}>Ideal Student Journey</h2>
               <p className="mt-4 text-lg text-muted-foreground">We provide comprehensive support for your entire study abroad journey.</p>
               <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-4">
                 {idealJourneySteps.map((step) => (
@@ -87,7 +87,7 @@ export default function StudyAbroadPage() {
                   </div>
                 ))}
               </div>
-                <Button asChild size="lg" className="mt-12 font-bold">
+                <Button asChild size="lg" className="mt-12 font-bold bg-accent text-accent-foreground hover:bg-accent/90">
                     <Link href="/contact">View Details <ArrowRight className="ml-2 h-5 w-5"/></Link>
                 </Button>
             </div>

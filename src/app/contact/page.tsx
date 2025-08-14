@@ -168,7 +168,7 @@ export default function ContactPage() {
                   />
                   <Button
                     type="submit"
-                    className="w-full font-bold"
+                    className="w-full font-bold bg-accent text-accent-foreground hover:bg-accent/90"
                     disabled={form.formState.isSubmitting}
                   >
                     {form.formState.isSubmitting
@@ -183,7 +183,7 @@ export default function ContactPage() {
           <div className="space-y-8">
             <Card className="bg-card">
               <CardHeader>
-                <CardTitle className="font-headline text-2xl font-semibold text-primary" style={{color: "#1946e6"}}>
+                <CardTitle className="font-headline text-2xl font-semibold" style={{color: "#1946e6"}}>
                   Contact Information
                 </CardTitle>
                  <CardDescription>

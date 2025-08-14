@@ -63,14 +63,14 @@ export function CtaSection() {
           <Badge variant="default" className="bg-accent text-accent-foreground hover:bg-accent/90">
             GET STARTED
           </Badge>
-          <h2 className="font-headline text-4xl font-bold tracking-tight text-blue-900 md:text-5xl" style={{color: "#1946e6"}}>
+          <h2 className="font-headline text-4xl font-bold tracking-tight md:text-5xl" style={{color: "#1946e6"}}>
             Ready to Begin Your Journey?
           </h2>
           <p className="max-w-lg text-muted-foreground mx-auto md:mx-0">
             Interested in studying abroad? Fill out the form below and our
             experts will contact you for a personalized 1:1 counselling session.
           </p>
-          <Button asChild size="lg" className="bg-blue-900 font-bold text-white hover:bg-blue-800">
+          <Button asChild size="lg" className="bg-accent font-bold text-accent-foreground hover:bg-accent/90">
             <Link href="/contact">
               Contact Our Experts <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
@@ -79,7 +79,7 @@ export function CtaSection() {
 
         <Card className="rounded-xl shadow-2xl">
           <CardHeader>
-            <CardTitle className="font-headline text-center text-2xl font-bold text-blue-900" style={{color: "#1946e6"}}>
+            <CardTitle className="font-headline text-center text-2xl font-bold" style={{color: "#1946e6"}}>
               Book Your Free Counselling
             </CardTitle>
           </CardHeader>
