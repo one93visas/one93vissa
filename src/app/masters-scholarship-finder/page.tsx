@@ -123,8 +123,8 @@ export default function MastersScholarshipFinderPage() {
   return (
     <div className="bg-background">
       <section className="w-full bg-gradient-to-r from-primary/10 via-background to-primary/10">
-        <div className="container mx-auto px-4 py-24 text-center sm:py-32 md:px-8">
-          <h1 className="font-headline text-4xl font-bold tracking-tighter text-primary sm:text-5xl lg:text-6xl">
+        <div className="container mx-auto px-4 py-16 text-center sm:py-24 md:px-8">
+          <h1 className="font-headline text-4xl font-bold tracking-tighter text-primary sm:text-5xl lg:text-6xl" style={{color: "#1946e6"}}>
             Masters Scholarship Finder
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
@@ -138,7 +138,7 @@ export default function MastersScholarshipFinderPage() {
         {!submitted ? (
           <Card className="mx-auto max-w-2xl">
             <CardHeader>
-              <CardTitle className="font-headline text-2xl text-primary">
+              <CardTitle className="font-headline text-2xl text-primary" style={{color: "#1946e6"}}>
                 Find Your University
               </CardTitle>
               <CardDescription>
@@ -184,7 +184,7 @@ export default function MastersScholarshipFinderPage() {
           </Card>
         ) : (
           <div className="text-center">
-            <h2 className="font-headline text-3xl font-bold text-primary">
+            <h2 className="font-headline text-3xl font-bold text-primary" style={{color: "#1946e6"}}>
               Suggested Universities
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
@@ -209,7 +209,7 @@ export default function MastersScholarshipFinderPage() {
                             </div>
                         </div>
                         <div>
-                            <CardTitle className="font-headline text-xl text-primary">
+                            <CardTitle className="font-headline text-xl text-primary" style={{color: "#1946e6"}}>
                               {uni.university}
                             </CardTitle>
                             <CardDescription>{uni.country}</CardDescription>
@@ -255,7 +255,7 @@ export default function MastersScholarshipFinderPage() {
                  {suggestedUniversities.length > 4 && (
                      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center rounded-lg bg-background/80 backdrop-blur-sm">
                          <div className="text-center p-8">
-                              <h3 className="font-headline text-2xl font-bold text-primary">
+                              <h3 className="font-headline text-2xl font-bold text-primary" style={{color: "#1946e6"}}>
                                  Want to see more options?
                              </h3>
                              <p className="mt-2 text-lg text-muted-foreground">
@@ -271,5 +271,3 @@ export default function MastersScholarshipFinderPage() {
     </div>
   );
 }
-
-    
