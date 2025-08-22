@@ -153,9 +153,9 @@ export default function Home() {
                     <div className="relative mx-auto w-full max-w-md">
                         <div className="absolute -inset-2 rounded-xl bg-gradient-to-tr from-primary/30 to-accent/30 blur-lg"></div>
                         <Image
-                            src="https://placehold.co/600x700"
-                            alt="Student studying"
-                            data-ai-hint="student studying"
+                            src="/student-studying.jpg"
+                            alt="Student studying with a book"
+                            data-ai-hint="student reading book"
                             width={600}
                             height={700}
                             className="relative rounded-lg object-cover shadow-xl"
