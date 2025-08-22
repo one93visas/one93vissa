@@ -133,9 +133,9 @@ export default function Home() {
           </div>
           <div className="relative h-auto w-full">
             <Image
-              src="https://placehold.co/600x600"
-              alt="Student with headphones"
-              data-ai-hint="student headphones"
+              src="/hero-student.jpg"
+              alt="Smiling student with a backpack ready for her journey"
+              data-ai-hint="smiling student"
               width={600}
               height={600}
               className="mx-auto rounded-xl object-cover shadow-2xl"
