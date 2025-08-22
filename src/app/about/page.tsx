@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -68,9 +69,9 @@ export default function AboutUsPage() {
         <div className="container mx-auto grid grid-cols-1 items-center gap-12 px-4 md:grid-cols-2 md:px-8">
           <div>
             <Image
-              src="https://placehold.co/600x450"
-              alt="Our team collaborating"
-              data-ai-hint="team collaboration office"
+              src="/our-story.jpg"
+              alt="A team of professionals in a meeting at One93 Global Pathways"
+              data-ai-hint="team meeting"
               width={600}
               height={450}
               className="rounded-lg shadow-lg"
