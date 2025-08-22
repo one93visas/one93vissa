@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -93,9 +94,9 @@ export default function StudyAbroadPage() {
             </div>
             <div className="relative h-auto w-full order-first lg:order-last">
                 <Image
-                    src="https://placehold.co/600x600"
-                    alt="Student studying with headphones"
-                    data-ai-hint="student headphones"
+                    src="/ideal-student-journey.jpg"
+                    alt="An illustration of a calm student sitting on luggage, representing a smooth study abroad journey"
+                    data-ai-hint="student journey illustration"
                     width={600}
                     height={600}
                     className="mx-auto rounded-xl object-cover shadow-lg"
