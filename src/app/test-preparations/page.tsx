@@ -168,7 +168,7 @@ export default function TestPreparationPage() {
       <section className="relative w-full overflow-hidden bg-primary/10">
         <div className="container relative z-10 mx-auto grid grid-cols-1 items-center gap-10 px-4 py-20 md:grid-cols-2 md:py-24 md:px-6 lg:py-32">
           <div className="flex flex-col justify-center space-y-6 text-center lg:text-left">
-            <h1 className="text-5xl font-extrabold leading-tight tracking-tight text-primary sm:text-6xl md:text-7xl lg:text-8xl" style={{color: "rgb(25, 70, 230)"}}>
+            <h1 className="text-5xl font-extrabold leading-tight tracking-tight text-primary sm:text-6xl md:text-7xl lg:text-8xl" style={{color: "#1946e6"}}>
               Test Preparation
             </h1>
             <p className="text-3xl font-bold text-foreground md:text-4xl">Experience Exceptional Results!</p>
@@ -278,8 +278,8 @@ export default function TestPreparationPage() {
             </div>
             <div className="relative">
               <Image
-                src="https://placehold.co/600x400"
-                alt="Online Learning"
+                src="/online-learning-student.jpg"
+                alt="A student learning online with a laptop"
                 width={600}
                 height={400}
                 data-ai-hint="student online learning"
