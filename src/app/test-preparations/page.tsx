@@ -166,17 +166,17 @@ export default function TestPreparationPage() {
     <div className="bg-background">
       {/* Hero Section */}
       <section className="relative w-full overflow-hidden bg-primary/10">
-        <div className="container relative z-10 mx-auto grid grid-cols-1 items-center gap-10 px-4 py-20 md:grid-cols-2 md:py-32 md:px-6 lg:py-40">
+        <div className="container relative z-10 mx-auto grid grid-cols-1 items-center gap-10 px-4 py-20 md:grid-cols-2 md:py-24 md:px-6 lg:py-32">
           <div className="flex flex-col justify-center space-y-6 text-center lg:text-left">
-            <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl" style={{color: "#1946e6"}}>
+            <h1 className="text-5xl font-extrabold leading-tight tracking-tight text-primary sm:text-6xl md:text-7xl lg:text-8xl" style={{color: "rgb(25, 70, 230)"}}>
               Test Preparation
             </h1>
-            <p className="text-2xl font-bold text-foreground md:text-3xl">Experience Exceptional Results!</p>
-            <p className="mx-auto max-w-[600px] text-lg leading-relaxed text-muted-foreground md:text-xl lg:mx-0">
+            <p className="text-3xl font-bold text-foreground md:text-4xl">Experience Exceptional Results!</p>
+            <p className="mx-auto max-w-[600px] text-xl leading-relaxed text-muted-foreground md:text-2xl lg:mx-0">
               Master IELTS, PTE, DET, GRE, and SAT with One93 VISAS expert guidance and proven strategies.
             </p>
             <div className="flex justify-center lg:justify-start">
-              <Button asChild size="lg">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
                 <Link href="/contact">
                   Apply Now
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -186,12 +186,12 @@ export default function TestPreparationPage() {
           </div>
           <div className="relative mt-10 flex w-full justify-center lg:mt-0 lg:justify-end">
             <div className="relative">
-              <div className="absolute -inset-2.5 rounded-full bg-accent"/>
+              <div className="absolute -inset-4 rounded-full bg-accent"/>
               <Image
                 src="/test-prep-hero.jpg"
                 alt="Students taking a test in a classroom"
-                width={500}
-                height={500}
+                width={600}
+                height={600}
                 data-ai-hint="students classroom"
                 className="relative rounded-full object-cover shadow-2xl"
               />
@@ -348,7 +348,7 @@ export default function TestPreparationPage() {
             ))}
           </div>
           <div className="text-center mt-12">
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
               <Link
                 href="/contact"
               >
