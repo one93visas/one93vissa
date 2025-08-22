@@ -192,11 +192,11 @@ export default function TestPreparationPage() {
             <div className="relative">
               <div className="absolute -inset-2.5 rounded-full bg-yellow-400"/>
               <Image
-                src="https://placehold.co/500x500"
-                alt="Test Preparation"
+                src="/test-prep-hero.jpg"
+                alt="Students taking a test in a classroom"
                 width={500}
                 height={500}
-                data-ai-hint="student smiling"
+                data-ai-hint="students classroom"
                 className="relative rounded-full object-cover shadow-2xl"
               />
             </div>
