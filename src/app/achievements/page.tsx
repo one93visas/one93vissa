@@ -257,14 +257,6 @@ export default function AchievementsPage() {
                   height={300}
                   className="h-auto w-full object-cover"
                 />
-                <CardHeader>
-                  <CardTitle className="font-headline text-xl">{story.name}</CardTitle>
-                  <p className="text-sm text-primary">{story.university}</p>
-                   <p className="text-sm text-muted-foreground">{story.program}</p>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-muted-foreground">"{story.story}"</p>
-                </CardContent>
               </Card>
             ))}
           </div>
