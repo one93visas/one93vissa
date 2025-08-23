@@ -44,15 +44,21 @@ export function PhoneVerificationModal({
   const { toast } = useToast();
 
   useEffect(() => {
-    if (isOpen && step === 'phone' && !window.recaptchaVerifier) {
-      // Set up recaptcha verifier
-      window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
-        'size': 'invisible',
-        'callback': (response: any) => {
-          // reCAPTCHA solved, allow signInWithPhoneNumber.
+    if (isOpen && step === 'phone') {
+      try {
+        if (!window.recaptchaVerifier) {
+            window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+              'size': 'invisible',
+              'callback': (response: any) => {
+                // reCAPTCHA solved, allow signInWithPhoneNumber.
+              }
+            });
+            window.recaptchaVerifier.render();
         }
-      });
-      window.recaptchaVerifier.render();
+      } catch (e) {
+          console.error("Recaptcha Verifier error:", e);
+          setError("Could not initialize verification. Please refresh the page.");
+      }
     }
   }, [isOpen, step]);
 
@@ -65,7 +71,13 @@ export function PhoneVerificationModal({
     setIsLoading(true);
 
     const fullPhoneNumber = `+91${phone}`;
-    const appVerifier = window.recaptchaVerifier!;
+    
+    if (!window.recaptchaVerifier) {
+        setError("Recaptcha not initialized. Please refresh and try again.");
+        setIsLoading(false);
+        return;
+    }
+    const appVerifier = window.recaptchaVerifier;
 
     try {
       const confirmationResult = await signInWithPhoneNumber(auth, fullPhoneNumber, appVerifier);
@@ -78,7 +90,14 @@ export function PhoneVerificationModal({
       setStep("otp");
     } catch (err: any) {
       console.error("Firebase OTP Error:", err);
-      setError(err.message || "Failed to send OTP. Please try again.");
+      // Provide a more user-friendly error message
+      if (err.code === 'auth/invalid-phone-number') {
+        setError("The phone number is not valid. Please check and try again.");
+      } else if (err.code === 'auth/too-many-requests') {
+        setError("Too many requests. Please try again later.");
+      } else {
+        setError("Failed to send OTP. Please check your domain settings in Google Cloud Console.");
+      }
     } finally {
       setIsLoading(false);
     }
@@ -121,8 +140,14 @@ export function PhoneVerificationModal({
       setStep("phone");
       setError(null);
       setIsLoading(false);
+      // Clean up reCAPTCHA widget
       if (window.recaptchaVerifier) {
+          const recaptchaContainer = document.getElementById('recaptcha-container');
+          if (recaptchaContainer) {
+              recaptchaContainer.innerHTML = '';
+          }
           window.recaptchaVerifier.clear();
+          window.recaptchaVerifier = undefined;
       }
   }
 
@@ -188,7 +213,7 @@ export function PhoneVerificationModal({
             </Button>
           ) : (
             <Button onClick={handleVerifyOtp} disabled={isLoading} className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-              {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              {isLoading && <Loader2 className="mr-2 h-4 w-4 animate--spin" />}
               Verify & Continue
             </Button>
           )}
