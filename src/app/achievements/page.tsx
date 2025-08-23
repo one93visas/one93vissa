@@ -294,9 +294,8 @@ export default function AchievementsPage() {
                             </div>
                         </CardHeader>
                         <CardContent>
-                            <h3 className="font-headline text-lg font-bold">{award.name}</h3>
-                            <p className="text-primary">{award.issuer}</p>
-                            <Badge variant="secondary" className="mt-4">{award.year}</Badge>
+                            <p className="font-semibold text-primary">{award.issuer}</p>
+                            <Badge variant="secondary" className="mt-2">{award.year}</Badge>
                         </CardContent>
                     </Card>
                 ))}
