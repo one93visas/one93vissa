@@ -54,12 +54,16 @@ export default function MastersScholarshipFinderPage() {
     
     // 1. Save data to Supabase
     try {
+      const { "Student Name": student_name, "Student College Name": college_name, ...other_form_data } = formData;
+      
       const { error } = await supabase
         .from('scholarship_submissions')
         .insert([{ 
             phone_number: phone, 
-            form_data: formData,
-            country: selectedCountry
+            country: selectedCountry,
+            student_name: student_name,
+            college_name: college_name,
+            form_data: other_form_data,
         }]);
 
       if (error) throw error;
@@ -104,12 +108,14 @@ export default function MastersScholarshipFinderPage() {
 
   const renderFormFields = (country: Country) => {
     const form = country === "USA" ? usForm : ukForm;
-    const fields =
+    const countrySpecificFields =
       country === "USA"
         ? ["IELTS", "TOEFL", "GRE", "Academic percentage", "Backlogs"]
         : ["MOI", "Inter 1st and 2nd year marks", "Percentage"];
 
-    return fields.map((field) => (
+    const allFields = ["Student Name", "Student College Name", ...countrySpecificFields];
+
+    return allFields.map((field) => (
       <div key={field}>
         <Label htmlFor={field} className="font-semibold">
           {field}
@@ -118,6 +124,7 @@ export default function MastersScholarshipFinderPage() {
           name={field}
           control={form.control}
           defaultValue=""
+          rules={{ required: field === 'Student Name' || field === 'Student College Name' ? `${field} is required` : false }}
           render={({ field: { onChange, value } }) => {
             if (field === 'MOI') {
               return (
@@ -152,6 +159,11 @@ export default function MastersScholarshipFinderPage() {
             );
           }}
         />
+        {form.formState.errors[field] && (
+            <p className="text-sm font-medium text-destructive mt-1">
+              {(form.formState.errors[field] as any)?.message}
+            </p>
+        )}
       </div>
     ));
   };
