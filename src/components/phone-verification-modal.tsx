@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -12,14 +12,23 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { supabase } from "@/lib/supabase";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
+import { auth } from "@/lib/firebase";
+import { RecaptchaVerifier, signInWithPhoneNumber, ConfirmationResult } from "firebase/auth";
 
 interface PhoneVerificationModalProps {
   isOpen: boolean;
   onOpenChange: (isOpen: boolean) => void;
   onVerificationSuccess: (phone: string) => void;
+}
+
+// Helper to correctly type window for recaptchaVerifier
+declare global {
+    interface Window {
+        recaptchaVerifier?: RecaptchaVerifier;
+        confirmationResult?: ConfirmationResult;
+    }
 }
 
 export function PhoneVerificationModal({
@@ -34,6 +43,19 @@ export function PhoneVerificationModal({
   const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
 
+  useEffect(() => {
+    if (isOpen && step === 'phone' && !window.recaptchaVerifier) {
+      // Set up recaptcha verifier
+      window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+        'size': 'invisible',
+        'callback': (response: any) => {
+          // reCAPTCHA solved, allow signInWithPhoneNumber.
+        }
+      });
+      window.recaptchaVerifier.render();
+    }
+  }, [isOpen, step]);
+
   const handleSendOtp = async () => {
     if (!/^\d{10}$/.test(phone)) {
       setError("Please enter a valid 10-digit Indian mobile number.");
@@ -43,20 +65,19 @@ export function PhoneVerificationModal({
     setIsLoading(true);
 
     const fullPhoneNumber = `+91${phone}`;
+    const appVerifier = window.recaptchaVerifier!;
 
     try {
-      const { data, error } = await supabase.auth.signInWithOtp({
-        phone: fullPhoneNumber,
-      });
-
-      if (error) throw error;
-
+      const confirmationResult = await signInWithPhoneNumber(auth, fullPhoneNumber, appVerifier);
+      window.confirmationResult = confirmationResult;
+      
       toast({
         title: "OTP Sent!",
         description: "An OTP has been sent to your mobile number.",
       });
       setStep("otp");
     } catch (err: any) {
+      console.error("Firebase OTP Error:", err);
       setError(err.message || "Failed to send OTP. Please try again.");
     } finally {
       setIsLoading(false);
@@ -72,25 +93,23 @@ export function PhoneVerificationModal({
     setIsLoading(true);
 
     const fullPhoneNumber = `+91${phone}`;
-
+    
     try {
-      const { data, error } = await supabase.auth.verifyOtp({
-        phone: fullPhoneNumber,
-        token: otp,
-        type: "sms",
-      });
+        if (!window.confirmationResult) {
+            throw new Error("Confirmation result not found. Please try sending the OTP again.");
+        }
+      const result = await window.confirmationResult.confirm(otp);
 
-      if (error) throw error;
-      
-      // The session object might be in data.session
-      if (!data.session) {
+      if (!result.user) {
         throw new Error("Verification failed. Please check the OTP and try again.");
       }
-
+      
       onVerificationSuccess(fullPhoneNumber);
       resetState();
-    } catch (err: any)      {
-      setError(err.error_description || err.message || "Invalid OTP. Please try again.");
+
+    } catch (err: any) {
+      console.error("Firebase Verify Error:", err);
+      setError(err.message || "Invalid OTP. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -102,6 +121,9 @@ export function PhoneVerificationModal({
       setStep("phone");
       setError(null);
       setIsLoading(false);
+      if (window.recaptchaVerifier) {
+          window.recaptchaVerifier.clear();
+      }
   }
 
   const handleModalOpenChange = (open: boolean) => {
@@ -125,6 +147,7 @@ export function PhoneVerificationModal({
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
+          <div id="recaptcha-container"></div>
           {error && (
             <p className="text-sm font-medium text-destructive">{error}</p>
           )}
