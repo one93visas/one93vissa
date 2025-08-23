@@ -25,8 +25,11 @@ import { usUniversities, ukUniversities } from "@/lib/university-data";
 import { University } from "@/types";
 import { matchUniversities } from "@/lib/utils/scholarship-matcher";
 import { CtaSection } from "@/components/layout/cta-section";
-import { GraduationCap, Award } from "lucide-react";
+import { GraduationCap, Award, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { PhoneVerificationModal } from "@/components/phone-verification-modal";
+import { supabase } from "@/lib/supabase";
+import { useToast } from "@/hooks/use-toast";
 
 type Country = "USA" | "UK";
 
@@ -34,18 +37,50 @@ export default function MastersScholarshipFinderPage() {
   const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
   const [suggestedUniversities, setSuggestedUniversities] = useState<University[]>([]);
   const [submitted, setSubmitted] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState<any>(null);
+  const { toast } = useToast();
 
   const usForm = useForm();
   const ukForm = useForm();
 
-  const onUsSubmit = (data: any) => {
-    const suggestions = matchUniversities("USA", data, usUniversities);
-    setSuggestedUniversities(suggestions);
-    setSubmitted(true);
+  const handleFormSubmit = (data: any) => {
+    setFormData(data);
+    setIsModalOpen(true);
   };
+  
+  const handleVerificationSuccess = async (phone: string) => {
+    setIsModalOpen(false);
+    
+    // 1. Save data to Supabase
+    try {
+      const { error } = await supabase
+        .from('scholarship_submissions')
+        .insert([{ 
+            phone_number: phone, 
+            form_data: formData,
+            country: selectedCountry
+        }]);
 
-  const onUkSubmit = (data: any) => {
-    const suggestions = matchUniversities("UK", data, ukUniversities);
+      if (error) throw error;
+
+      toast({
+          title: "Verification Successful!",
+          description: "Your submission has been saved.",
+      });
+
+    } catch (error: any) {
+       toast({
+        variant: "destructive",
+        title: "Database Error",
+        description: error.message || "Could not save your submission.",
+      });
+      return; // Stop if saving fails
+    }
+
+    // 2. Show university suggestions
+    const universities = selectedCountry === "USA" ? usUniversities : ukUniversities;
+    const suggestions = matchUniversities(selectedCountry!, formData, universities);
     setSuggestedUniversities(suggestions);
     setSubmitted(true);
   };
@@ -64,6 +99,7 @@ export default function MastersScholarshipFinderPage() {
     setSubmitted(false);
     usForm.reset();
     ukForm.reset();
+    setFormData(null);
   }
 
   const renderFormFields = (country: Country) => {
@@ -122,6 +158,11 @@ export default function MastersScholarshipFinderPage() {
   
   return (
     <div className="bg-background">
+       <PhoneVerificationModal 
+          isOpen={isModalOpen}
+          onOpenChange={setIsModalOpen}
+          onVerificationSuccess={handleVerificationSuccess}
+       />
       <section className="w-full bg-gradient-to-r from-primary/10 via-background to-primary/10">
         <div className="container mx-auto px-4 py-16 text-center sm:py-24 md:px-8">
           <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl lg:text-6xl" style={{color: "#1946e6"}}>
@@ -169,8 +210,8 @@ export default function MastersScholarshipFinderPage() {
                 <form
                   onSubmit={
                     selectedCountry === "USA"
-                      ? usForm.handleSubmit(onUsSubmit)
-                      : ukForm.handleSubmit(onUkSubmit)
+                      ? usForm.handleSubmit(handleFormSubmit)
+                      : ukForm.handleSubmit(handleFormSubmit)
                   }
                   className="space-y-4"
                 >
