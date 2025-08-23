@@ -1,8 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Globe, GraduationCap, Star, Trophy, Users } from "lucide-react";
 import { CtaSection } from "@/components/layout/cta-section";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const stats = [
   {
@@ -31,7 +35,14 @@ const stats = [
   },
 ];
 
-const successStories = [
+const allSuccessStories = [
+  {
+    name: "Kola Karishma",
+    university: "University of East London, UK",
+    program: "Master of Business Administration",
+    image: "/images/achievements/kola-karishma.jpg",
+    story: "One93 Global Pathways made my dream of studying in the UK a reality. Their expert guidance on my application and visa was invaluable.",
+  },
   {
     name: "Alisha Khan",
     university: "Stanford University, USA",
@@ -74,6 +85,104 @@ const successStories = [
     image: "https://placehold.co/400x300",
     story: "Their dedicated support was incredible. They found niche scholarships that I would have never discovered on my own.",
   },
+  {
+    name: "George Kim",
+    university: "ETH Zurich, Switzerland",
+    program: "PhD in Robotics",
+    image: "https://placehold.co/400x300",
+    story: "The detailed feedback on my research proposal was a game-changer. Truly grateful for their mentorship.",
+  },
+  {
+    name: "Hannah Patel",
+    university: "University of Toronto, Canada",
+    program: "Master of Public Health",
+    image: "https://placehold.co/400x300",
+    story: "They helped me find the perfect program that aligned with my career goals. The visa process was seamless.",
+  },
+  {
+    name: "Ivan Petrov",
+    university: "University of Amsterdam, Netherlands",
+    program: "MA in International Relations",
+    image: "https://placehold.co/400x300",
+    story: "Their expertise in European universities is unmatched. I couldn't have done it without them.",
+  },
+  {
+    name: "Jasmine Kaur",
+    university: "New York University, USA",
+    program: "MFA in Film Production",
+    image: "https://placehold.co/400x300",
+    story: "One93's team helped me craft a portfolio that stood out. So thrilled to be at my dream film school!",
+  },
+  {
+    name: "Leo Martinez",
+    university: "Imperial College London, UK",
+    program: "MSc in Advanced Materials",
+    image: "https://placehold.co/400x300",
+    story: "The technical interview prep sessions were incredibly helpful. Felt confident and prepared.",
+  },
+  {
+    name: "Maria Rodriguez",
+    university: "University of Sydney, Australia",
+    program: "Master of Physiotherapy",
+    image: "https://placehold.co/400x300",
+    story: "They made a complex and long process feel simple and achievable. Highly recommended!",
+  },
+  {
+    name: "Nikhil Sharma",
+    university: "Purdue University, USA",
+    program: "MS in Aerospace Engineering",
+    image: "https://placehold.co/400x300",
+    story: "Their scholarship assistance was amazing. I received funding that made my studies possible.",
+  },
+  {
+    name: "Olivia Chen",
+    university: "University of Hong Kong",
+    program: "Bachelor of Social Sciences",
+    image: "https://placehold.co/400x300",
+    story: "As an undergraduate applicant, their guidance was crucial in navigating the different university systems.",
+  },
+  {
+    name: "Priya Singh",
+    university: "London School of Economics, UK",
+    program: "MSc in Economics",
+    image: "https://placehold.co/400x300",
+    story: "Their insights into what top economics programs look for were invaluable.",
+  },
+  {
+    name: "Quinn Davis",
+    university: "University of Auckland, New Zealand",
+    program: "Master of Environmental Science",
+    image: "https://placehold.co/400x300",
+    story: "I appreciated their focus on finding a program that matched my passion for sustainability.",
+  },
+  {
+    name: "Ravi Kumar",
+    university: "Georgia Institute of Technology, USA",
+    program: "MS in Cybersecurity",
+    image: "https://placehold.co/400x300",
+    story: "The mock interviews for both university admission and the visa were incredibly realistic and helpful.",
+  },
+  {
+    name: "Sofia Rossi",
+    university: "Bocconi University, Italy",
+    program: "MSc in Finance",
+    image: "https://placehold.co/400x300",
+    story: "Their team's knowledge of European business schools is top-tier. I got into my first choice!",
+  },
+  {
+    name: "Tom Harris",
+    university: "University College Dublin, Ireland",
+    program: "Master of Architecture",
+    image: "https://placehold.co/400x300",
+    story: "They helped me with my portfolio and connected me with alumni. An amazing support system.",
+  },
+  {
+    name: "Uma Devi",
+    university: "University of Tokyo, Japan",
+    program: "Research Student Program",
+    image: "https://placehold.co/400x300",
+    story: "Navigating the Japanese university system was tough, but One93's expertise made it possible.",
+  }
 ];
 
 const awards = [
@@ -83,6 +192,15 @@ const awards = [
 ]
 
 export default function AchievementsPage() {
+  const [visibleStories, setVisibleStories] = useState(6);
+
+  const loadMoreStories = () => {
+    setVisibleStories(allSuccessStories.length);
+  };
+
+  const successStories = allSuccessStories.slice(0, visibleStories);
+
+
   return (
     <div className="bg-background">
       <section className="w-full bg-gradient-to-r from-primary/10 via-background to-primary/10">
@@ -150,6 +268,13 @@ export default function AchievementsPage() {
               </Card>
             ))}
           </div>
+           {visibleStories < allSuccessStories.length && (
+            <div className="mt-12 text-center">
+              <Button onClick={loadMoreStories} size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+                Load More Success Stories
+              </Button>
+            </div>
+          )}
         </div>
       </section>
        <section className="py-16 md:py-24">
