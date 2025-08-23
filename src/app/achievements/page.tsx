@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -182,6 +183,195 @@ const allSuccessStories = [
     program: "Research Student Program",
     image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.02 AM.jpeg",
     story: "Navigating the Japanese university system was tough, but One93's expertise made it possible.",
+  },
+  {
+    name: "New Student 1",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.03 AM (1).jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 2",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.03 AM.jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 3",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.04 AM (2).jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 4",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.04 AM (3).jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 5",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.05 AM (1).jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 6",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.05 AM.jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 7",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.06 AM (1).jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 8",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.06 AM.jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 9",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.07 AM (1).jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 10",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.07 AM (2).jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 11",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.07 AM.jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 12",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.08 AM (1).jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 13",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.08 AM (2).jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 14",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.08 AM.jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 15",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.09 AM (1).jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 16",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.09 AM.jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 17",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.10 AM (1).jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 18",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.10 AM.jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 19",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.11 AM (1).jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 20",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.11 AM (2).jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 21",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.11 AM.jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 22",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.12 AM (1).jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 23",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.12 AM (2).jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 24",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.12 AM.jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 25",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.13 AM (1).jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 26",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.13 AM (2).jpeg",
+    story: "Placeholder story.",
+  },
+  {
+    name: "New Student 27",
+    university: "University Name",
+    program: "Program Name",
+    image: "/images/achievements/WhatsApp Image 2025-08-22 at 11.56.13 AM.jpeg",
+    story: "Placeholder story.",
   }
 ];
 
@@ -191,11 +381,13 @@ const awards = [
     { name: "Top-Performing Partner", year: "2021", issuer: "University of Canada West" },
 ]
 
+const STORIES_PER_PAGE = 9;
+
 export default function AchievementsPage() {
-  const [visibleStories, setVisibleStories] = useState(6);
+  const [visibleStories, setVisibleStories] = useState(STORIES_PER_PAGE);
 
   const loadMoreStories = () => {
-    setVisibleStories(allSuccessStories.length);
+    setVisibleStories(prev => prev + STORIES_PER_PAGE);
   };
 
   const successStories = allSuccessStories.slice(0, visibleStories);
@@ -248,7 +440,7 @@ export default function AchievementsPage() {
           </div>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {successStories.map((story) => (
-              <Card key={story.name} className="flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+              <Card key={story.image} className="flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl">
                 <Image
                   src={story.image}
                   alt={`Portrait of ${story.name}`}
