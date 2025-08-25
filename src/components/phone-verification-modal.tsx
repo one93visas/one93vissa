@@ -43,24 +43,66 @@ export function PhoneVerificationModal({
   const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
 
+  const resetState = () => {
+      setPhone("");
+      setOtp("");
+      setStep("phone");
+      setError(null);
+      setIsLoading(false);
+      // Clean up reCAPTCHA widget
+      if (window.recaptchaVerifier) {
+          window.recaptchaVerifier.clear();
+          window.recaptchaVerifier = undefined;
+      }
+      const recaptchaContainer = document.getElementById('recaptcha-container');
+      if (recaptchaContainer) {
+          recaptchaContainer.innerHTML = '';
+      }
+  }
+
+  const handleModalOpenChange = (open: boolean) => {
+    if (!open) {
+        resetState();
+    }
+    onOpenChange(open);
+  }
+  
+  const setupRecaptcha = () => {
+    if (!auth) {
+        setError("Firebase is not initialized. Please check your configuration.");
+        return;
+    }
+    try {
+        if (window.recaptchaVerifier) {
+            window.recaptchaVerifier.clear();
+        }
+        
+        window.recaptchaVerifier = new RecaptchaVerifier(auth, 'get-otp-button', {
+          'size': 'invisible',
+          'callback': (response: any) => {
+            // reCAPTCHA solved, allow signInWithPhoneNumber.
+            // This callback is executed when the reCAPTCHA is verified.
+          }
+        });
+    } catch (e) {
+        console.error("Recaptcha Verifier error:", e);
+        setError("Could not initialize verification. Your domain might not be authorized in the Firebase console.");
+    }
+  }
+
   useEffect(() => {
     if (isOpen && step === 'phone') {
-      try {
-        if (!window.recaptchaVerifier) {
-            window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
-              'size': 'invisible',
-              'callback': (response: any) => {
-                // reCAPTCHA solved, allow signInWithPhoneNumber.
-              }
-            });
-            window.recaptchaVerifier.render();
-        }
-      } catch (e) {
-          console.error("Recaptcha Verifier error:", e);
-          setError("Could not initialize verification. Please refresh the page.");
-      }
+        setupRecaptcha();
     }
+    
+    // Cleanup on component unmount
+    return () => {
+      if (window.recaptchaVerifier) {
+        window.recaptchaVerifier.clear();
+      }
+    };
   }, [isOpen, step]);
+
 
   const handleSendOtp = async () => {
     if (!/^\d{10}$/.test(phone)) {
@@ -73,7 +115,7 @@ export function PhoneVerificationModal({
     const fullPhoneNumber = `+91${phone}`;
     
     if (!window.recaptchaVerifier) {
-        setError("Recaptcha not initialized. Please refresh and try again.");
+        setError("Recaptcha not initialized. Please try again.");
         setIsLoading(false);
         return;
     }
@@ -90,14 +132,15 @@ export function PhoneVerificationModal({
       setStep("otp");
     } catch (err: any) {
       console.error("Firebase OTP Error:", err);
-      // Provide a more user-friendly error message
-      if (err.code === 'auth/invalid-phone-number') {
+       if (err.code === 'auth/invalid-phone-number') {
         setError("The phone number is not valid. Please check and try again.");
       } else if (err.code === 'auth/too-many-requests') {
-        setError("Too many requests. Please try again later.");
+        setError("Too many requests from this number. Please try again later.");
       } else {
-        setError("Failed to send OTP. Please check your domain settings in Google Cloud Console.");
+        setError("Failed to send OTP. Please ensure your domain is authorized in both Firebase Auth and Google Cloud reCAPTCHA settings.");
       }
+      // Reset reCAPTCHA on error so the user can try again.
+      setupRecaptcha(); 
     } finally {
       setIsLoading(false);
     }
@@ -115,7 +158,7 @@ export function PhoneVerificationModal({
     
     try {
         if (!window.confirmationResult) {
-            throw new Error("Confirmation result not found. Please try sending the OTP again.");
+            throw new Error("Verification session expired. Please try sending the OTP again.");
         }
       const result = await window.confirmationResult.confirm(otp);
 
@@ -124,39 +167,19 @@ export function PhoneVerificationModal({
       }
       
       onVerificationSuccess(fullPhoneNumber);
-      resetState();
+      handleModalOpenChange(false); // Close modal on success
 
     } catch (err: any) {
       console.error("Firebase Verify Error:", err);
-      setError(err.message || "Invalid OTP. Please try again.");
+      if (err.code === 'auth/invalid-verification-code') {
+         setError("Invalid OTP. Please check the code and try again.");
+      } else {
+         setError(err.message || "Failed to verify OTP.");
+      }
     } finally {
       setIsLoading(false);
     }
   };
-  
-  const resetState = () => {
-      setPhone("");
-      setOtp("");
-      setStep("phone");
-      setError(null);
-      setIsLoading(false);
-      // Clean up reCAPTCHA widget
-      if (window.recaptchaVerifier) {
-          const recaptchaContainer = document.getElementById('recaptcha-container');
-          if (recaptchaContainer) {
-              recaptchaContainer.innerHTML = '';
-          }
-          window.recaptchaVerifier.clear();
-          window.recaptchaVerifier = undefined;
-      }
-  }
-
-  const handleModalOpenChange = (open: boolean) => {
-    if (!open) {
-        resetState();
-    }
-    onOpenChange(open);
-  }
 
   return (
     <Dialog open={isOpen} onOpenChange={handleModalOpenChange}>
@@ -207,13 +230,13 @@ export function PhoneVerificationModal({
         </div>
         <DialogFooter>
           {step === "phone" ? (
-            <Button onClick={handleSendOtp} disabled={isLoading} className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+            <Button id="get-otp-button" onClick={handleSendOtp} disabled={isLoading} className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
               {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               Get OTP
             </Button>
           ) : (
             <Button onClick={handleVerifyOtp} disabled={isLoading} className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-              {isLoading && <Loader2 className="mr-2 h-4 w-4 animate--spin" />}
+              {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               Verify & Continue
             </Button>
           )}
