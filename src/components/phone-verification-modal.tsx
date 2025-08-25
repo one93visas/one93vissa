@@ -67,40 +67,36 @@ export function PhoneVerificationModal({
     onOpenChange(open);
   }
   
-  const setupRecaptcha = () => {
-    if (!auth) {
-        setError("Firebase is not initialized. Please check your configuration.");
-        return;
-    }
-    try {
-        if (window.recaptchaVerifier) {
-            window.recaptchaVerifier.clear();
-        }
-        
-        window.recaptchaVerifier = new RecaptchaVerifier(auth, 'get-otp-button', {
-          'size': 'invisible',
-          'callback': (response: any) => {
-            // reCAPTCHA solved, allow signInWithPhoneNumber.
-            // This callback is executed when the reCAPTCHA is verified.
-          }
-        });
-    } catch (e) {
-        console.error("Recaptcha Verifier error:", e);
-        setError("Could not initialize verification. Your domain might not be authorized in the Firebase console.");
-    }
-  }
-
+  // This useEffect hook sets up the RecaptchaVerifier
   useEffect(() => {
+    // Only run this effect when the modal is open and we're on the phone input step
     if (isOpen && step === 'phone') {
-        setupRecaptcha();
+        if (!auth) {
+            setError("Firebase is not initialized. Please check your configuration.");
+            return;
+        }
+
+        // Check if the verifier is already initialized to avoid re-creating it
+        if (!window.recaptchaVerifier) {
+            try {
+                // We create a new RecaptchaVerifier instance and attach it to the 'get-otp-button'.
+                // This element MUST exist in the DOM when this code runs.
+                window.recaptchaVerifier = new RecaptchaVerifier(auth, 'get-otp-button', {
+                  'size': 'invisible',
+                  'callback': () => {
+                    // This callback is executed when the reCAPTCHA is successfully solved.
+                  }
+                });
+                
+                // Pre-render the reCAPTCHA to ensure it's ready.
+                window.recaptchaVerifier.render();
+
+            } catch (e: any) {
+                console.error("Recaptcha Verifier error:", e);
+                setError("Could not initialize verification. Your domain might not be authorized. Please check your Firebase and Google Cloud settings.");
+            }
+        }
     }
-    
-    // Cleanup on component unmount
-    return () => {
-      if (window.recaptchaVerifier) {
-        window.recaptchaVerifier.clear();
-      }
-    };
   }, [isOpen, step]);
 
 
@@ -139,8 +135,6 @@ export function PhoneVerificationModal({
       } else {
         setError("Failed to send OTP. Please ensure your domain is authorized in both Firebase Auth and Google Cloud reCAPTCHA settings.");
       }
-      // Reset reCAPTCHA on error so the user can try again.
-      setupRecaptcha(); 
     } finally {
       setIsLoading(false);
     }
