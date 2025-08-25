@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Dialog,
   DialogContent,
@@ -23,7 +23,6 @@ interface PhoneVerificationModalProps {
   onVerificationSuccess: (phone: string) => void;
 }
 
-// Helper to correctly type window for recaptchaVerifier
 declare global {
     interface Window {
         recaptchaVerifier?: RecaptchaVerifier;
@@ -42,22 +41,24 @@ export function PhoneVerificationModal({
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
+  const recaptchaContainerRef = useRef<HTMLDivElement>(null);
 
   const resetState = () => {
-      setPhone("");
-      setOtp("");
-      setStep("phone");
-      setError(null);
-      setIsLoading(false);
-      
-      const recaptchaContainer = document.getElementById('recaptcha-container');
-      if (recaptchaContainer) {
-          recaptchaContainer.innerHTML = '';
-      }
-      if (window.recaptchaVerifier) {
-        window.recaptchaVerifier.clear();
-        window.recaptchaVerifier = undefined;
-      }
+    setPhone("");
+    setOtp("");
+    setStep("phone");
+    setError(null);
+    setIsLoading(false);
+    
+    // Clean up old verifier if it exists
+    if (window.recaptchaVerifier) {
+      window.recaptchaVerifier.clear();
+      window.recaptchaVerifier = undefined;
+    }
+    // Ensure the container is empty for the next render
+    if (recaptchaContainerRef.current) {
+      recaptchaContainerRef.current.innerHTML = '';
+    }
   }
 
   const handleModalOpenChange = (open: boolean) => {
@@ -68,35 +69,33 @@ export function PhoneVerificationModal({
   }
   
   const setupRecaptcha = () => {
-    if (!auth) {
-        setError("Firebase is not initialized.");
-        return;
-    }
+    if (!auth || !recaptchaContainerRef.current) return;
+    if (window.recaptchaVerifier) return; // Already initialized
 
     try {
-        window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
-          'size': 'invisible',
-          'callback': () => {
-            // reCAPTCHA solved, allow signInWithPhoneNumber.
-            handleSendOtp();
-          }
-        });
-        window.recaptchaVerifier.render();
+       // Use a visible container for max compatibility
+      window.recaptchaVerifier = new RecaptchaVerifier(auth, recaptchaContainerRef.current, {
+        'size': 'invisible',
+        'callback': () => {
+          // This callback is for invisible reCAPTCHA which auto-verifies
+          // The main logic is triggered by the button click
+        }
+      });
+      window.recaptchaVerifier.render();
+
     } catch (e: any) {
         console.error("Recaptcha Verifier error:", e);
-        setError("Could not initialize verification. Please ensure your domains are authorized in Google Cloud and the necessary APIs are enabled. Check the console for more details.");
+        setError("Could not initialize verification. Please check your domain and API configuration in Google Cloud and Firebase.");
     }
   };
 
   useEffect(() => {
-    if (isOpen && step === 'phone' && !window.recaptchaVerifier) {
-      // Use a small timeout to ensure the container is in the DOM
-      setTimeout(() => {
-        const recaptchaContainer = document.getElementById('recaptcha-container');
-        if (recaptchaContainer) {
+    if (isOpen && step === 'phone') {
+        // Delay to ensure the modal and div are fully rendered
+        const timer = setTimeout(() => {
             setupRecaptcha();
-        }
-      }, 100);
+        }, 100);
+        return () => clearTimeout(timer);
     }
   }, [isOpen, step]);
 
@@ -112,7 +111,7 @@ export function PhoneVerificationModal({
     const fullPhoneNumber = `+91${phone}`;
     
     if (!window.recaptchaVerifier) {
-        setError("Recaptcha is not ready. Please wait a moment and try again.");
+        setError("reCAPTCHA not ready. Please wait a moment and try again.");
         setIsLoading(false);
         return;
     }
@@ -235,8 +234,8 @@ export function PhoneVerificationModal({
             </Button>
           )}
         </DialogFooter>
-         {/* This div is the dedicated container for the reCAPTCHA widget */}
-        <div id="recaptcha-container"></div>
+        {/* Dedicated container for reCAPTCHA, referenced by the ref */}
+        <div ref={recaptchaContainerRef}></div>
       </DialogContent>
     </Dialog>
   );
