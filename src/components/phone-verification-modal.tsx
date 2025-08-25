@@ -43,13 +43,12 @@ export function PhoneVerificationModal({
   const { toast } = useToast();
 
   const cleanup = () => {
-    // Clean up old verifier if it exists
     if (window.recaptchaVerifier) {
-        window.recaptchaVerifier.clear();
-    }
-    const oldWidget = document.getElementById("recaptcha-container");
-    if (oldWidget) {
-        oldWidget.remove();
+      window.recaptchaVerifier.clear();
+      const container = document.getElementById("recaptcha-container");
+      if (container) {
+          container.innerHTML = '';
+      }
     }
   }
 
@@ -78,23 +77,14 @@ export function PhoneVerificationModal({
     setIsLoading(true);
 
     try {
-      // Create a container for reCAPTCHA if it doesn't exist
-      let recaptchaContainer = document.getElementById('recaptcha-container');
-      if (!recaptchaContainer) {
-        recaptchaContainer = document.createElement('div');
-        recaptchaContainer.id = 'recaptcha-container';
-        document.body.appendChild(recaptchaContainer);
-      }
+        cleanup(); // Clear previous instance
+
+        window.recaptchaVerifier = new RecaptchaVerifier(auth, "recaptcha-container", {
+            'size': 'invisible',
+        });
       
-      cleanup(); // Clear previous instance before creating a new one
-
-      const verifier = new RecaptchaVerifier(auth, recaptchaContainer, {
-        'size': 'invisible',
-      });
-      window.recaptchaVerifier = verifier;
-
       const fullPhoneNumber = `+91${phone}`;
-      const confirmationResult = await signInWithPhoneNumber(auth, fullPhoneNumber, verifier);
+      const confirmationResult = await signInWithPhoneNumber(auth, fullPhoneNumber, window.recaptchaVerifier);
       
       window.confirmationResult = confirmationResult;
       
@@ -167,6 +157,7 @@ export function PhoneVerificationModal({
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
+          <div id="recaptcha-container"></div>
           {error && (
             <p className="text-sm font-medium text-destructive">{error}</p>
           )}
