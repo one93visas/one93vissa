@@ -49,14 +49,14 @@ export function PhoneVerificationModal({
       setStep("phone");
       setError(null);
       setIsLoading(false);
-      // Clean up reCAPTCHA widget
-      if (window.recaptchaVerifier) {
-          window.recaptchaVerifier.clear();
-          window.recaptchaVerifier = undefined;
-      }
+      
       const recaptchaContainer = document.getElementById('recaptcha-container');
       if (recaptchaContainer) {
           recaptchaContainer.innerHTML = '';
+      }
+      if (window.recaptchaVerifier) {
+        window.recaptchaVerifier.clear();
+        window.recaptchaVerifier = undefined;
       }
   }
 
@@ -67,35 +67,36 @@ export function PhoneVerificationModal({
     onOpenChange(open);
   }
   
-  // This useEffect hook sets up the RecaptchaVerifier
+  const setupRecaptcha = () => {
+    if (!auth) {
+        setError("Firebase is not initialized.");
+        return;
+    }
+
+    try {
+        window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+          'size': 'invisible',
+          'callback': () => {
+            // reCAPTCHA solved, allow signInWithPhoneNumber.
+            handleSendOtp();
+          }
+        });
+        window.recaptchaVerifier.render();
+    } catch (e: any) {
+        console.error("Recaptcha Verifier error:", e);
+        setError("Could not initialize verification. Please ensure your domains are authorized in Google Cloud and the necessary APIs are enabled. Check the console for more details.");
+    }
+  };
+
   useEffect(() => {
-    // Only run this effect when the modal is open and we're on the phone input step
-    if (isOpen && step === 'phone') {
-        if (!auth) {
-            setError("Firebase is not initialized. Please check your configuration.");
-            return;
+    if (isOpen && step === 'phone' && !window.recaptchaVerifier) {
+      // Use a small timeout to ensure the container is in the DOM
+      setTimeout(() => {
+        const recaptchaContainer = document.getElementById('recaptcha-container');
+        if (recaptchaContainer) {
+            setupRecaptcha();
         }
-
-        // Check if the verifier is already initialized to avoid re-creating it
-        if (!window.recaptchaVerifier) {
-            try {
-                // We create a new RecaptchaVerifier instance and attach it to the 'get-otp-button'.
-                // This element MUST exist in the DOM when this code runs.
-                window.recaptchaVerifier = new RecaptchaVerifier(auth, 'get-otp-button', {
-                  'size': 'invisible',
-                  'callback': () => {
-                    // This callback is executed when the reCAPTCHA is successfully solved.
-                  }
-                });
-                
-                // Pre-render the reCAPTCHA to ensure it's ready.
-                window.recaptchaVerifier.render();
-
-            } catch (e: any) {
-                console.error("Recaptcha Verifier error:", e);
-                setError("Could not initialize verification. Your domain might not be authorized. Please check your Firebase and Google Cloud settings.");
-            }
-        }
+      }, 100);
     }
   }, [isOpen, step]);
 
@@ -111,7 +112,7 @@ export function PhoneVerificationModal({
     const fullPhoneNumber = `+91${phone}`;
     
     if (!window.recaptchaVerifier) {
-        setError("Recaptcha not initialized. Please try again.");
+        setError("Recaptcha is not ready. Please wait a moment and try again.");
         setIsLoading(false);
         return;
     }
@@ -133,7 +134,7 @@ export function PhoneVerificationModal({
       } else if (err.code === 'auth/too-many-requests') {
         setError("Too many requests from this number. Please try again later.");
       } else {
-        setError("Failed to send OTP. Please ensure your domain is authorized in both Firebase Auth and Google Cloud reCAPTCHA settings.");
+        setError("Failed to send OTP. Please check your domain and API configuration in Google Cloud.");
       }
     } finally {
       setIsLoading(false);
@@ -189,7 +190,6 @@ export function PhoneVerificationModal({
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
-          <div id="recaptcha-container"></div>
           {error && (
             <p className="text-sm font-medium text-destructive">{error}</p>
           )}
@@ -235,6 +235,8 @@ export function PhoneVerificationModal({
             </Button>
           )}
         </DialogFooter>
+         {/* This div is the dedicated container for the reCAPTCHA widget */}
+        <div id="recaptcha-container"></div>
       </DialogContent>
     </Dialog>
   );
