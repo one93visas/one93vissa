@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -41,7 +41,17 @@ export function PhoneVerificationModal({
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
-  const recaptchaContainerRef = useRef<HTMLDivElement>(null);
+
+  const cleanup = () => {
+    // Clean up old verifier if it exists
+    if (window.recaptchaVerifier) {
+        window.recaptchaVerifier.clear();
+    }
+    const oldWidget = document.getElementById("recaptcha-container");
+    if (oldWidget) {
+        oldWidget.remove();
+    }
+  }
 
   const resetState = () => {
     setPhone("");
@@ -49,16 +59,7 @@ export function PhoneVerificationModal({
     setStep("phone");
     setError(null);
     setIsLoading(false);
-    
-    // Clean up old verifier if it exists
-    if (window.recaptchaVerifier) {
-      window.recaptchaVerifier.clear();
-      window.recaptchaVerifier = undefined;
-    }
-    // Ensure the container is empty for the next render
-    if (recaptchaContainerRef.current) {
-      recaptchaContainerRef.current.innerHTML = '';
-    }
+    cleanup();
   }
 
   const handleModalOpenChange = (open: boolean) => {
@@ -68,38 +69,6 @@ export function PhoneVerificationModal({
     onOpenChange(open);
   }
   
-  const setupRecaptcha = () => {
-    if (!auth || !recaptchaContainerRef.current) return;
-    if (window.recaptchaVerifier) return; // Already initialized
-
-    try {
-       // Use a visible container for max compatibility
-      window.recaptchaVerifier = new RecaptchaVerifier(auth, recaptchaContainerRef.current, {
-        'size': 'invisible',
-        'callback': () => {
-          // This callback is for invisible reCAPTCHA which auto-verifies
-          // The main logic is triggered by the button click
-        }
-      });
-      window.recaptchaVerifier.render();
-
-    } catch (e: any) {
-        console.error("Recaptcha Verifier error:", e);
-        setError("Could not initialize verification. Please check your domain and API configuration in Google Cloud and Firebase.");
-    }
-  };
-
-  useEffect(() => {
-    if (isOpen && step === 'phone') {
-        // Delay to ensure the modal and div are fully rendered
-        const timer = setTimeout(() => {
-            setupRecaptcha();
-        }, 100);
-        return () => clearTimeout(timer);
-    }
-  }, [isOpen, step]);
-
-
   const handleSendOtp = async () => {
     if (!/^\d{10}$/.test(phone)) {
       setError("Please enter a valid 10-digit Indian mobile number.");
@@ -108,17 +77,25 @@ export function PhoneVerificationModal({
     setError(null);
     setIsLoading(true);
 
-    const fullPhoneNumber = `+91${phone}`;
-    
-    if (!window.recaptchaVerifier) {
-        setError("reCAPTCHA not ready. Please wait a moment and try again.");
-        setIsLoading(false);
-        return;
-    }
-    const appVerifier = window.recaptchaVerifier;
-
     try {
-      const confirmationResult = await signInWithPhoneNumber(auth, fullPhoneNumber, appVerifier);
+      // Create a container for reCAPTCHA if it doesn't exist
+      let recaptchaContainer = document.getElementById('recaptcha-container');
+      if (!recaptchaContainer) {
+        recaptchaContainer = document.createElement('div');
+        recaptchaContainer.id = 'recaptcha-container';
+        document.body.appendChild(recaptchaContainer);
+      }
+      
+      cleanup(); // Clear previous instance before creating a new one
+
+      const verifier = new RecaptchaVerifier(auth, recaptchaContainer, {
+        'size': 'invisible',
+      });
+      window.recaptchaVerifier = verifier;
+
+      const fullPhoneNumber = `+91${phone}`;
+      const confirmationResult = await signInWithPhoneNumber(auth, fullPhoneNumber, verifier);
+      
       window.confirmationResult = confirmationResult;
       
       toast({
@@ -126,6 +103,7 @@ export function PhoneVerificationModal({
         description: "An OTP has been sent to your mobile number.",
       });
       setStep("otp");
+
     } catch (err: any) {
       console.error("Firebase OTP Error:", err);
        if (err.code === 'auth/invalid-phone-number') {
@@ -133,7 +111,7 @@ export function PhoneVerificationModal({
       } else if (err.code === 'auth/too-many-requests') {
         setError("Too many requests from this number. Please try again later.");
       } else {
-        setError("Failed to send OTP. Please check your domain and API configuration in Google Cloud.");
+        setError("Failed to send OTP. Please check your cloud configuration and authorized domains.");
       }
     } finally {
       setIsLoading(false);
@@ -223,7 +201,7 @@ export function PhoneVerificationModal({
         </div>
         <DialogFooter>
           {step === "phone" ? (
-            <Button id="get-otp-button" onClick={handleSendOtp} disabled={isLoading} className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+            <Button onClick={handleSendOtp} disabled={isLoading} className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
               {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               Get OTP
             </Button>
@@ -234,8 +212,6 @@ export function PhoneVerificationModal({
             </Button>
           )}
         </DialogFooter>
-        {/* Dedicated container for reCAPTCHA, referenced by the ref */}
-        <div ref={recaptchaContainerRef}></div>
       </DialogContent>
     </Dialog>
   );
