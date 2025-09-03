@@ -8,22 +8,16 @@ import { CtaSection } from "@/components/layout/cta-section";
 
 const teamMembers = [
   {
-    name: "John Doe",
-    role: "Founder & CEO",
-    image: "https://placehold.co/400x400",
-    bio: "With over 20 years of experience, John leads our team with a passion for helping students achieve their dreams.",
+    name: "Venkateswara Reddy Pulusu",
+    role: "Co-Founder",
+    image: "/WhatsApp Image 2025-09-01 at 2.09.32 PM.jpeg",
+    bio: "Co-founder of One93 Global Pathways, leading the vision for global education.",
   },
   {
-    name: "Jane Smith",
-    role: "Head of Counseling",
-    image: "https://placehold.co/400x400",
-    bio: "Jane has guided thousands of students to top universities worldwide, specializing in profile building.",
-  },
-  {
-    name: "Sam Wilson",
-    role: "Visa & Immigration Head",
-    image: "https://placehold.co/400x400",
-    bio: "Sam's expertise in visa processes ensures a smooth and successful application for our students.",
+    name: "Sruthi pulusu",
+    role: "Co-Founder",
+    image: "/WhatsApp Image 2025-09-01 at 10.27.28 AM.jpeg",
+    bio: "Co-founder of One93 Global Pathways, dedicated to student success and operational excellence.",
   },
 ];
 
@@ -147,12 +141,12 @@ export default function AboutUsPage() {
       <section className="bg-secondary py-16 md:py-24">
         <div className="container mx-auto px-4 text-center md:px-8">
           <h2 className="font-headline text-3xl font-bold text-foreground" style={{color: "#1946e6"}}>
-            Meet Our Team
+            Meet Our Founders
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
             The experienced professionals dedicated to your success.
           </p>
-          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
             {teamMembers.map((member) => (
               <Card key={member.name} className="overflow-hidden">
                 <CardHeader className="p-0">
