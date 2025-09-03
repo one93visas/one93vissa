@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   title: "One93 Global Pathways",
   description: "Your partner in global education and career opportunities.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/one93visaslogo.png",
   },
 };
 
