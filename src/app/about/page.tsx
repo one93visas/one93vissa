@@ -148,18 +148,18 @@ export default function AboutUsPage() {
           </p>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
             {teamMembers.map((member) => (
-              <Card key={member.name} className="overflow-hidden">
-                <CardHeader className="p-0">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    data-ai-hint="professional headshot"
-                    width={400}
-                    height={400}
-                    className="h-auto w-full object-cover"
-                  />
-                </CardHeader>
-                <CardContent className="p-6 text-center">
+              <Card key={member.name} className="overflow-visible border-none bg-transparent shadow-none">
+                <CardContent className="flex flex-col items-center p-6 text-center">
+                   <div className="relative mb-4 h-48 w-48">
+                    <Image
+                        src={member.image}
+                        alt={member.name}
+                        data-ai-hint="professional headshot"
+                        width={192}
+                        height={192}
+                        className="h-full w-full rounded-full object-cover shadow-lg"
+                    />
+                   </div>
                   <h3 className="font-headline text-xl font-bold">
                     {member.name}
                   </h3>
