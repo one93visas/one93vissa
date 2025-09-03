@@ -17,7 +17,7 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <div className="sticky top-0 z-50 w-full p-4">
+    <div className="w-full p-4">
         <header className="container mx-auto flex h-24 items-center justify-between rounded-2xl border border-border/40 bg-background/95 p-4 shadow-lg backdrop-blur supports-[backdrop-filter]:bg-background/60 md:px-8">
             <Link href="/" className="flex items-center space-x-2">
             <Logo className="h-20 object-contain" />
@@ -59,13 +59,13 @@ export function Header() {
             </Sheet>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex md:items-center md:gap-x-2">
+            <nav className="hidden md:flex md:items-center md:gap-x-1 lg:gap-x-2">
             {NAV_LINKS.map((link) => (
                 <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                    "rounded-full px-4 py-2 text-sm font-medium transition-colors",
+                    "rounded-full px-3 py-2 text-xs lg:px-4 lg:text-sm font-medium transition-colors",
                     pathname === link.href
                     ? "bg-primary text-primary-foreground shadow-md"
                     : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
