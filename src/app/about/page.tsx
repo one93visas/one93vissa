@@ -155,9 +155,8 @@ export default function AboutUsPage() {
                         src={member.image}
                         alt={member.name}
                         data-ai-hint="professional headshot"
-                        width={192}
-                        height={192}
-                        className="h-full w-full rounded-full object-cover shadow-lg"
+                        fill
+                        className="rounded-full object-cover object-top shadow-lg"
                     />
                    </div>
                   <h3 className="font-headline text-xl font-bold">
