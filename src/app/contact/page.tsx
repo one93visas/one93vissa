@@ -219,12 +219,6 @@ export default function ContactPage() {
                     >
                       9121225067
                     </a>
-                     <a
-                      href="tel:9121225068"
-                      className="text-muted-foreground hover:text-primary block"
-                    >
-                      9121225068
-                    </a>
                     <a
                       href="tel:+914048502636"
                       className="text-muted-foreground hover:text-primary block"
@@ -250,6 +244,12 @@ export default function ContactPage() {
                       className="text-muted-foreground hover:text-primary block"
                     >
                       one93visas@gmail.com
+                    </a>
+                     <a
+                      href="mailto:usaone93visas@gmail.com"
+                      className="text-muted-foreground hover:text-primary block"
+                    >
+                      usaone93visas@gmail.com
                     </a>
                   </div>
                 </div>

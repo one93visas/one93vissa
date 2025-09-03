@@ -83,10 +83,11 @@ export function Footer() {
                     <li>#304, 3rd Floor, Padmaja,s Raja Enclave,</li>
                     <li>Beside KS Backers, KPHB, Kukatpally,</li>
                      <li>Hyderabad-72, Telangana, INDIA</li>
-                    <li><a href="tel:9121225066" className="hover:text-primary">9121225066</a>/<a href="tel:9121225067" className="hover:text-primary">67</a>/<a href="tel:9121225068" className="hover:text-primary">68</a></li>
+                    <li><a href="tel:9121225066" className="hover:text-primary">9121225066</a>/<a href="tel:9121225067" className="hover:text-primary">67</a></li>
                     <li><a href="tel:+914048502636" className="hover:text-primary">+91-40-48502636</a></li>
                     <li><a href="mailto:info@one93visas.com" className="hover:text-primary">info@one93visas.com</a></li>
                     <li><a href="mailto:one93visas@gmail.com" className="hover:text-primary">one93visas@gmail.com</a></li>
+                    <li><a href="mailto:usaone93visas@gmail.com" className="hover:text-primary">usaone93visas@gmail.com</a></li>
                 </ul>
             </div>
           </div>
