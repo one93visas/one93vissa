@@ -10,13 +10,13 @@ const teamMembers = [
   {
     name: "Venkateswara Reddy Pulusu",
     role: "Co-Founder",
-    image: "/WhatsApp Image 2025-09-01 at 2.09.32 PM.jpeg",
+    image: "/Screenshot 2025-09-03 165515.png",
     bio: "Co-founder of One93 Global Pathways, leading the vision for global education.",
   },
   {
     name: "Sruthi pulusu",
     role: "Co-Founder",
-    image: "/WhatsApp Image 2025-09-01 at 10.27.28 AM.jpeg",
+    image: "/Screenshot 2025-09-03 165408.png",
     bio: "Co-founder of One93 Global Pathways, dedicated to student success and operational excellence.",
   },
 ];
