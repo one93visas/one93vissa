@@ -213,8 +213,8 @@ export default function Home() {
                             </div>
                             <div>
                                 <h4 className="font-semibold">Get in touch:</h4>
-                                <a href="mailto:contact@one93globaledu.com" className="text-muted-foreground hover:text-primary">
-                                    contact@one93globaledu.com
+                                <a href="mailto:one93visas@gmail.com" className="text-muted-foreground hover:text-primary">
+                                    one93visas@gmail.com
                                 </a>
                             </div>
                         </div>
