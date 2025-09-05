@@ -177,7 +177,7 @@ export default function StudyAbroadPage() {
       <section className="bg-secondary py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-8">
             <div className="text-center">
-                <h2 className="font-headline text-3xl font-bold text-foreground" style={{color: "#1946e6"}}>Unlock Your Future in Europe</h2>
+                <h2 className="font-headline text-3xl font-bold text-foreground" style={{color: "#1946e6"}}>Study in Europe</h2>
                 <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
                     Discover the benefits of studying in Europe, from top-tier education to rich cultural experiences.
                 </p>
