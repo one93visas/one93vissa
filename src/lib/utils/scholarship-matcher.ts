@@ -38,6 +38,8 @@ export function matchUniversities(
   const userScores = {
     IELTS: parseFloat(userInput.IELTS) || 0,
     TOEFL: parseFloat(userInput.TOEFL) || 0,
+    DET: parseFloat(userInput.DET) || 0,
+    PTE: parseFloat(userInput.PTE) || 0,
     GRE: parseFloat(userInput.GRE) || 0,
     "Academic percentage": parseFloat(userInput["Academic percentage"]) || 0,
     Backlogs: parseInt(userInput.Backlogs, 10),
@@ -70,6 +72,26 @@ export function matchUniversities(
             conditionsCount++;
             const uniTOEFL = typeof reqs.TOEFL === 'number' ? reqs.TOEFL : 0;
             if (userScores.TOEFL >= uniTOEFL) {
+                score += 10;
+                conditionsMet++;
+            }
+        }
+        
+        // DET
+        if (userScores.DET > 0) {
+            conditionsCount++;
+            const uniDET = typeof reqs.DET === 'number' ? reqs.DET : 0;
+            if (userScores.DET >= uniDET) {
+                score += 10;
+                conditionsMet++;
+            }
+        }
+
+        // PTE
+        if (userScores.PTE > 0) {
+            conditionsCount++;
+            const uniPTE = typeof reqs.PTE === 'number' ? reqs.PTE : 0;
+            if (userScores.PTE >= uniPTE) {
                 score += 10;
                 conditionsMet++;
             }
@@ -117,6 +139,47 @@ export function matchUniversities(
                   // This branch handles cases where other scores are needed
               }
           }
+
+          // IELTS
+          if (userScores.IELTS > 0) {
+              conditionsCount++;
+              const uniIELTS = typeof reqs.IELTS === 'number' ? reqs.IELTS : 0;
+              if (userScores.IELTS >= uniIELTS) {
+                  score += 10;
+                  conditionsMet++;
+              }
+          }
+          
+          // TOEFL
+          if (userScores.TOEFL > 0) {
+              conditionsCount++;
+              const uniTOEFL = typeof reqs.TOEFL === 'number' ? reqs.TOEFL : 0;
+              if (userScores.TOEFL >= uniTOEFL) {
+                  score += 10;
+                  conditionsMet++;
+              }
+          }
+
+          // DET
+          if (userScores.DET > 0) {
+              conditionsCount++;
+              const uniDET = typeof reqs.DET === 'number' ? reqs.DET : 0;
+              if (userScores.DET >= uniDET) {
+                  score += 10;
+                  conditionsMet++;
+              }
+          }
+
+          // PTE
+          if (userScores.PTE > 0) {
+              conditionsCount++;
+              const uniPTE = typeof reqs.PTE === 'number' ? reqs.PTE : 0;
+              if (userScores.PTE >= uniPTE) {
+                  score += 10;
+                  conditionsMet++;
+              }
+          }
+
 
           // Inter Marks
           if (userScores["Inter 1st and 2nd year marks"] > 0 && reqs["Inter 1st and 2nd year marks"]) {

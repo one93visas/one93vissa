@@ -110,8 +110,8 @@ export default function MastersScholarshipFinderPage() {
     const form = country === "USA" ? usForm : ukForm;
     const countrySpecificFields =
       country === "USA"
-        ? ["IELTS", "TOEFL", "GRE", "Academic percentage", "Backlogs"]
-        : ["MOI", "Inter 1st and 2nd year marks", "Percentage"];
+        ? ["IELTS", "TOEFL", "DET", "PTE", "GRE", "Academic percentage", "Backlogs"]
+        : ["MOI", "IELTS", "TOEFL", "DET", "PTE", "Inter 1st and 2nd year marks", "Percentage"];
 
     const allFields = ["Student Name", "Student College Name", ...countrySpecificFields];
 
@@ -148,6 +148,8 @@ export default function MastersScholarshipFinderPage() {
                 type={
                   field.includes("IELTS") ||
                   field.includes("TOEFL") ||
+                  field.includes("DET") ||
+                  field.includes("PTE") ||
                   field.includes("GRE") ||
                   field.includes("percentage") ||
                   field.includes("Backlogs") ||
