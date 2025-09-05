@@ -20,6 +20,12 @@ import {
   Users,
   Home,
   Zap,
+  Euro,
+  University,
+  Languages,
+  Landmark,
+  Briefcase,
+  Plane,
 } from "lucide-react";
 import { CtaSection } from "@/components/layout/cta-section";
 
@@ -54,6 +60,17 @@ const ukSpecializations = [
     { icon: <Award className="h-8 w-8 text-primary" />, title: "Loan Guidance", description: "Expert education loan assistance" },
     { icon: <Lightbulb className="h-8 w-8 text-primary" />, title: "Start Now", description: "Begin without proof of funds" },
     { icon: <BookCheck className="h-8 w-8 text-primary" />, title: "Free Applications", description: "No cost for applications" },
+];
+
+const europeFeatures = [
+    { icon: <Euro className="h-8 w-8 text-primary" />, title: "Affordable Tuition", description: "Access world-class education at a fraction of the cost." },
+    { icon: <University className="h-8 w-8 text-primary" />, title: "Top-Ranked Institutions", description: "Study at globally recognized and historic universities." },
+    { icon: <Languages className="h-8 w-8 text-primary" />, title: "English-Taught Programs", description: "Wide range of courses offered entirely in English." },
+    { icon: <Landmark className="h-8 w-8 text-primary" />, title: "Cultural Diversity", description: "Immerse yourself in a rich tapestry of cultures and languages." },
+    { icon: <Briefcase className="h-8 w-8 text-primary" />, title: "Post-Study Work Visas", description: "Excellent opportunities for career growth after graduation." },
+    { icon: <Plane className="h-8 w-8 text-primary" />, title: "Simplified Visa Process", description: "Streamlined visa procedures for students in many countries." },
+    { icon: <Award className="h-8 w-8 text-primary" />, title: "Generous Scholarships", description: "Numerous scholarship options for international students." },
+    { icon: <Map className="h-8 w-8 text-primary" />, title: "Explore Schengen Area", description: "Travel freely across 27 European countries with one visa." },
 ]
 
 
@@ -155,9 +172,32 @@ export default function StudyAbroadPage() {
             </div>
         </div>
       </section>
+
+      {/* Europe Section */}
+      <section className="bg-secondary py-16 md:py-24">
+        <div className="container mx-auto px-4 md:px-8">
+            <div className="text-center">
+                <h2 className="font-headline text-3xl font-bold text-foreground" style={{color: "#1946e6"}}>Unlock Your Future in Europe</h2>
+                <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+                    Discover the benefits of studying in Europe, from top-tier education to rich cultural experiences.
+                </p>
+            </div>
+            <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
+                {europeFeatures.map((item) => (
+                     <div key={item.title} className="flex flex-col items-center text-center p-4 rounded-lg bg-card shadow-sm border">
+                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">
+                           {item.icon}
+                        </div>
+                        <h4 className="font-headline text-lg font-semibold text-primary">{item.title}</h4>
+                        <p className="text-muted-foreground text-sm">{item.description}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+      </section>
       
       {/* Requirements Section */}
-      <section className="bg-secondary py-16 md:py-24">
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-8">
              <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
                 <Card>
