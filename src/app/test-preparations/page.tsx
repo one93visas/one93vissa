@@ -60,15 +60,14 @@ export default function TestPreparationPage() {
       ],
     },
     {
-      title: "SAT",
-      subtitle: "Scholastic Assessment Test",
-      description: "Critical exam for college admissions in the U.S. and other countries.",
+      title: "TOEFL",
+      subtitle: "Test of English as a Foreign Language",
+      description: "Measures the ability of non-native English speakers to use and understand English at the university level.",
       sections: [
-        "Evidence-Based Reading and Writing:",
-        "Reading (65 minutes): 52 questions",
-        "Writing and Language (35 minutes): 44 questions",
-        "Math: No Calculator (25 minutes): 20 questions",
-        "Math: With Calculator (55 minutes): 38 questions",
+        "Reading (54–72 minutes): 3–4 passages, 30–40 questions",
+        "Listening (41–57 minutes): 3–4 lectures, 2–3 conversations, 28-39 questions",
+        "Speaking (17 minutes): 4 tasks (1 independent, 3 integrated)",
+        "Writing (50 minutes): 2 tasks (1 integrated, 1 independent)",
       ],
     },
   ]
