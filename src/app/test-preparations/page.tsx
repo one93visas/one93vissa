@@ -277,7 +277,7 @@ export default function TestPreparationPage() {
             </div>
             <div className="relative">
               <Image
-                src="/online-learning-student.jpg"
+                src="/student-studying-online-with-laptop.jpg"
                 alt="A student learning online with a laptop"
                 width={600}
                 height={400}
