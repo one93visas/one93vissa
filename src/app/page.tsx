@@ -23,6 +23,7 @@ import {
   Check,
   DollarSign,
   Calendar,
+  Globe,
 } from "lucide-react";
 import { CtaSection } from "@/components/layout/cta-section";
 
@@ -43,6 +44,12 @@ const services = [
     icon: <School className="h-10 w-10 text-accent" />,
     title: "Study in US",
     description: "Navigate US college applications and campus life with ease, from admissions to visas.",
+    link: "/study-abroad",
+  },
+  {
+    icon: <Globe className="h-10 w-10 text-accent" />,
+    title: "Study in Europe",
+    description: "Explore diverse cultures and top-tier universities across Europe with our dedicated support.",
     link: "/study-abroad",
   },
 ];
@@ -238,7 +245,7 @@ export default function Home() {
               We provide specialized support to ensure you are fully prepared for your academic and visa endeavors.
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             {services.map((service) => (
               <div
                 key={service.title}
