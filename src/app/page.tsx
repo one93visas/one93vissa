@@ -209,8 +209,8 @@ export default function Home() {
                             </div>
                             <div>
                                 <h4 className="font-semibold">Call us now:</h4>
-                                <a href="tel:+918919767632" className="text-muted-foreground hover:text-primary">
-                                    +91 8919767632
+                                <a href="tel:9121225066" className="text-muted-foreground hover:text-primary">
+                                    9121225066/67
                                 </a>
                             </div>
                         </div>
@@ -364,3 +364,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
