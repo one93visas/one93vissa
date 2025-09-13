@@ -256,7 +256,15 @@ export default function ContactPage() {
               </CardContent>
             </Card>
             <div className="h-80 w-full overflow-hidden rounded-lg">
-                <Image src="https://placehold.co/600x400" alt="Map to our office" data-ai-hint="city map" width={600} height={400} className="w-full h-full object-cover"/>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.263638298131!2d78.39871487501264!3d17.494923983410658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91eb624309ff%3A0xf5992a54dbcecf40!2sOne93%20VISAS%20Overseas%20Edu%20Consultants!5e0!3m2!1sen!2sin!4v1757746546424!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0 }}
+                    allowFullScreen={true} 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
           </div>
         </div>
