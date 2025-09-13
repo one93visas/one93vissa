@@ -15,9 +15,9 @@ const teamMembers = [
   },
   {
     name: "Sruthi pulusu",
-    role: "Co-Founder & CEO",
+    role: "Founder & CEO",
     image: "/Screenshot 2025-09-03 165408.png",
-    bio: "Co-founder of One93 Global Pathways, dedicated to student success and operational excellence.",
+    bio: "Founder of One93 Global Pathways, dedicated to student success and operational excellence.",
   },
 ];
 
